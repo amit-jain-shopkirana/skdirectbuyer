@@ -1,0 +1,48 @@
+.hdr{
+    color: orangered;
+    font-size: 22px !important;
+    font-weight: bold !important;
+}
+
+
+
+
+.back{
+    float: right;
+    color: orangered !important;
+    padding-top: 30px;
+    cursor: pointer;
+}
+
+    .bdy{
+        padding: 10px;
+    }
+    .hdr-b{
+        font-size: 14px;
+        font-weight: bold;
+    }
+    p{
+        font-size: 12px;
+        line-height: 13px;
+    }
+
+    .str{
+        position: absolute;
+        right: 6px;
+        bottom: 0px;
+    }
+    /*  */
+
+    .br .col-6 .brdr{
+        min-height: 110px;
+        max-height: 110px;
+        border: solid 1px gray;
+        margin-bottom: -3px;
+        margin-right: -5px;
+        margin-left: -1px;
+    }
+
+
+
+  
+

@@ -1,0 +1,135 @@
+<app-top-navigation-wrapper>
+  <div class="col-6">
+    <span class="hd" (click)="topseller()"><b><i class="fa fa-arrow-left"></i> &nbsp;&nbsp;Back</b></span>
+  </div>
+  <span style="color: white;">
+    <hr></span>
+</app-top-navigation-wrapper>
+<div>
+  <!-- <div class="hrd-cntr">
+    <div class="row">
+      <div class="col-12">
+        <span class="hd"><b> Seller Profile</b></span>
+        <a *ngIf="whatsAppPreUrl" [href]="getlink()" class="wh-link" data-action="share/whatsapp/share">
+          <i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div> -->
+  <div class="hrd-cntr">
+    <div class="row" *ngIf="userDetail">
+
+      <div class="col-3">
+        <img class="imgpattern" [src]="baseUrl + userDetail.ImagePath">
+      </div>
+      <div class="col-9">
+        <!-- <div>{{userDetail.FirstName}}&nbsp;{{userDetail.MiddleName}}&nbsp;{{userDetail.LastName}}</div> -->
+        <div>{{userDetail.ShopName}} 
+          <a *ngIf="whatsAppPreUrl" [href]="getlink()" class="wh-link" data-action="share/whatsapp/share">
+            <i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i>
+          </a>
+        </div>
+        <!-- <div>{{userDetail.Distance | number :'1.0-2'}} Km</div> -->
+        <ul class="list-inline rating-list" *ngFor="let star of stars; let i= index" style="display: inline-block">
+          <li id="{{'starId'+i}}" class="disabled" *ngIf="userDetail.Rating > 0"
+            [ngClass]="{'selected': (star <= userDetail.Rating)}"> ★
+          </li>
+        </ul>
+        <!-- <p class="str">
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star-half-o" aria-hidden="true"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+        </p> -->
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row tp">
+      <div class="col-12">
+        <span class="hdr">Seller Items</span>
+        <!-- <a class="back" (click)="viewAllSellers()">View all <i class="fa fa-angle-right" aria-hidden="true"></i> </a> -->
+      </div>
+      <div class="crrr" *ngIf="sellerProductList && sellerProductList.length > 0">
+        <p-autoComplete id="ap-ac1" [suggestions]="sellerProductList" field="ProductName"
+          (onSelect)="onSelectSeller($event)" [(ngModel)]="Keyword" placeholder="Search By Product/Brand/Category"
+          (completeMethod)="getSellerlistforfilter($event)" [style]="{'width':'90%'}" [inputStyle]="{'width':'100%'}"
+          name="CategoryName">
+        </p-autoComplete>
+        <button type="button" id="refreshBtn1" class="btn12" (click)="ngOnInit()">
+          <i class="fa fa-refresh" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <div class="search-results" infinite-scroll [infiniteScrollContainer]="'.cntr'" [fromRoot]="true"
+      [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance"
+      [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
+      <div *ngFor="let items of sellerProductList; let i=index;">
+        <div class="row itm" (click)="productDetail(items)">
+
+          <div class="col-4 img-brdr">
+            <img class="img-fluid" [src]="apiurl + items.ImagePath">
+          </div>
+          <div class="col-8 lft-cntr">
+            <p><span class="prdt">{{items.ProductName}}</span> </p>
+            <div>
+              <span> MRP: <s><i class="fa fa-inr"
+                    aria-hidden="true"></i>{{items.Mrp | number :'1.0-2'}}/-</s>&nbsp;</span>
+              <br><span class="clr">Selling Price : {{items.SellingPrice}} /-</span>
+            </div>
+            <div>Quantity: {{items.Measurement}}{{items.Uom}}</div>
+            <div *ngIf="items.VariationCount > 0">
+              <a (click)="variationPage(items)" href="javascript:void(0)">Variants {{items.VariationCount}} </a>
+            </div>
+            <div class="abs">
+              <button class="btn btn-my" id="addtoStockBtn" *ngIf="items.Qty == 0 && ((items.IsStockRequired == true && items.Stock > 0) || (items.IsStockRequired == false))" (click)="addProduct(items)">Add</button>
+              <div *ngIf="items.Qty > 0">
+                <button type="button" id="incbtn" class="s1" data-type="plus" data-field="quant[1]"
+                  (click)="increment(items);$event.stopPropagation();">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+                <div class="div1">
+                  <input [(ngModel)]="items.Qty" [name]="'qty' + i" class="r" type="number">
+                </div>
+                <button type="button" id="decbtn" class="s1" data-type="minus" data-field="quant[1]"
+                  (click)="decrement(items);$event.stopPropagation();">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div *ngIf=" items.IsStockRequired == true && items.Stock <= 0">
+                <span class="stock">Out Of Stock</span>
+              </div>
+              <!-- <div class="bg-text" *ngIf=" items.IsStockRequired == true && items.Stock <= 0">
+                <p class="txtctr">Temporary Out Of Stock</p>
+              </div> -->
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="noData" *ngIf="!sellerProductList || sellerProductList.length < 1">
+        <span >No Data Found</span>
+    </div>
+    </div>
+  </div>
+
+
+  <!-- <div class="row footer" *ngIf="TotalItems > 0 || itemQty > 0 && showReason">
+    <div class="column left" style="background-color:orangered;color: white;">
+      {{TotalItems}} Item
+    </div>
+    <div class="column middle" style="background-color:orangered;color: white;">
+      <p><i class="fa fa-inr" aria-hidden="true"></i>{{TotalAmount}}/-</p>
+    </div>
+    <div class="column right" style="background-color:orangered;color: white;" (click)="viewcart()">
+      VIEW CART<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    </div>
+  </div> -->
+
+</div>
+
+
+<!-- <p-confirmDialog [style]="{width: '80vw'}" [baseZIndex]="10000"></p-confirmDialog> -->

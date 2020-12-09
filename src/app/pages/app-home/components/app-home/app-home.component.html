@@ -1,0 +1,36 @@
+<!-- <div *ngIf="appHome">
+    <div *ngFor="let widget Of appHome.WidgetList; let i = index;">
+        <div *ngIf="widget.WidgetTypName == 'Carousel'">
+            <app-horizontal-slider [widget]="widget"></app-horizontal-slider>
+        </div>
+    </div>
+</div> -->
+
+<!-- <div *ngIf="appHome">
+    <div *ngFor="let widget Of appHome.WidgetList; let i = index;">
+        <div *ngIf="widget.WidgetTypName == 'Carousel'">
+            <app-carousel-widget [timeInSec]="3" [widget]="widget"></app-carousel-widget>
+        </div>
+        <div *ngIf="widget.WidgetTypName == 'Top Seller'">
+            <app-top-seller-widget [topSellerList]="widget.TopSellerList"></app-top-seller-widget>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="card" *ngIf="appHome">
+    <!-- <a style="float: left;" href="whatsapp://send?text=https://kutt.it/vvQH3K" data-action="share/whatsapp/share">Share via Whatsapp11</a> -->
+    <div>
+        <app-nearby-item [topNearItems]="appHome.NearByItemDC"></app-nearby-item>
+    </div>
+    <div>
+        <app-top-seller-widget [topSellerList]="appHome.TopSellerListDC"></app-top-seller-widget>
+    </div>
+    <div>
+        <app-category-seller-widget [topCategoryList]="appHome.TopCateogryDC"></app-category-seller-widget>
+    </div>
+    <!-- <div>
+        <app-popular-brands [topPopularBrandList]="appHome.PopularBrandDC"></app-popular-brands>
+    </div> -->
+
+</div>

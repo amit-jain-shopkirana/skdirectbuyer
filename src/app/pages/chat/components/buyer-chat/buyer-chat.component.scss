@@ -1,0 +1,48 @@
+:host ::ng-deep .nv-bar{
+    display: none;
+}
+
+
+:host ::ng-deep .dialog-my{
+    max-height: calc(var(--vh, 1vh) * 100)  !important;
+    height: calc(var(--vh, 1vh) * 100)  !important;
+    padding-bottom: 0px  !important;
+}
+
+
+.usr{
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background: white;
+    padding: .7em;
+    color: gray;
+    border-bottom: solid 1px orangered;
+    margin-top: .1em;
+}
+
+.aa{
+    width: 60%;
+}
+
+.tp-nav-btn{
+    width: 40%;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+.srch{
+    float: right;
+    padding: .3em;
+    font-weight: bold;
+}
+
+.cnt{
+    float: right;
+    background: tan;
+    color: white;
+    padding: .1em .6em;
+    border: solid 1px tan;
+    border-radius: 38px;
+    font-size: .8rem;
+}

@@ -1,0 +1,173 @@
+.footer {
+    position: fixed;
+    background: white;
+    padding: 10px;
+    width: 100%;
+    bottom: 59px;
+ }
+
+
+.column {
+    float: left;
+    padding: 18px;
+    height: 50px; 
+  }
+
+  .left, .right {
+    width: 36%;
+  }
+
+  .middle {
+    width: 28%;
+  }
+
+
+.container {
+  padding: 5px;
+}
+
+.hrd-cntr {
+  width: 100%;
+  position: relative;
+  background: #E9754E;
+  padding: 10px;
+  color: white;
+  .row{
+    margin: 0px;
+  }
+  .hd {
+    font-size: 20px;
+ 
+  }
+  img{
+    width: 100%;
+    max-height: 100px;
+  }
+}
+
+
+.back{
+    float: right;
+    color: #E9754E !important;
+    padding-top: 0px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.hdr{
+    color: #E9754E;
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+
+.br{
+  border-bottom: solid 1px #E9754E;
+}
+
+.clr{
+  color: #E9754E;
+}
+
+.div1, .s1{
+float: right;
+}
+
+.div1{
+
+  padding: 0px 3px;
+  input{
+    border: solid 1px lightgray;
+    background: wheat;
+    padding: 0px;
+    text-align: center;
+  }
+}
+
+.abs{
+  float: right;
+}
+
+.btn-my{
+  background: #E9754E;
+  color: white;
+}
+
+.s1{
+  background: #E9754E;
+  color: white;
+  border: none;
+}
+
+.r{
+  width: 30px;
+}
+
+img{
+  width: 100%;
+}
+
+.itm {
+  background: white;
+  min-height: 100px;
+  border: solid 1px white;
+  border-radius: 3px;
+  margin: 10px 5px 0px 5px;
+}
+
+.img-brdr{
+    border-right: solid 1px lightgray;
+    text-align: center;
+    padding: 10px 0px !important;
+    img{
+        width: 80%;
+    }
+}
+
+.lft-cntr{
+    padding: 15px 10px !important;
+    position: relative;
+}
+
+.dlt{
+    position: absolute;
+    right: 6px;
+    top: 2px;
+    font-size: 20px;
+}
+
+.prdt{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.prc{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color: #E9754E !important;
+    font-size: 21px;
+}
+
+.btm-nv{
+  position: fixed;
+  background: white;
+  padding: 10px;
+  width: 100%;
+  bottom: 59px;
+}
+
+.wh-link{
+  color: rgb(184, 226, 184);
+  float: right;
+}
+
+.search-results {
+  flex: none;
+}
+:host ::ng-deep .cntr {
+  background-color: #FFFAF7 !important;
+  flex: none;
+}
+.search-results {
+  flex: none;
+}

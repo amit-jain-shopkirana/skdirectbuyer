@@ -1,0 +1,52 @@
+<div class="bck">
+    <div class="logo-m">
+        <img src="assets/images/directlogo.png">
+    </div>
+    <form name="mobileInputForm" #mobileForm="ngForm" (ngSubmit)="onSubmit(mobileForm)">
+        <div class="lgn">
+            <div class="spp">
+                Enter Your
+                <br>Mobile Number
+            </div>
+            <div class="otpp">
+                We will be sending your OTP
+            </div>
+            <div class="mb">
+                <input name="prefix" disabled class="in-1" type="text" value="IN +91">
+                <input name="mobInpit" class="in-2" type="tel" pattern="^[6-9][0-9]{9}$" (keypress)="keyPress($event)"
+                    maxlength="10" required placeholder="Phone Number" [(ngModel)]="mobile" #mob="ngModel">
+                <img class="inr-img" src="assets/images/india.png">
+                <div *ngIf="isFormSubmitted && mob.invalid">
+                    <code>Enter valid mobile number</code>
+                </div>
+            </div>
+            <div class="btn-nxt">
+                <button type="submit" id="nxt1">
+                    Get OTP &nbsp;
+                    <i class="pi pi-arrow-right"></i>
+                    
+                </button>
+            </div>
+        </div>
+        <div class="btm-ftr">
+            <a (click)="loginByPassword(mobileForm)" class="s-clr">Login using Password</a>
+        </div>
+    </form>
+    
+    <!-- <div class="btn-nxt">
+    <div class="row">  
+        <button (click)="socialSignIn()" class="loginBtn loginBtn--facebook">  
+            <i class="fa fa-facebook-square" style="font-size:28px;"></i>
+            Login with Facebook  
+        </button> 
+        <button (click)="socialSignIn()" class="loginBtn" style="margin-top: 10px;margin-bottom: 10px;">  
+            <i class="fa fa-google" style="font-size:28px;"></i>
+             Login with Google  
+        </button> 
+        <button (click)="skDirect()" class="loginBtn loginBtn--facebook">  
+                    <img  src="assets/images/directlogo.jpeg" style=" width: 38px;">
+            Login with SK Direct  
+        </button> 
+        </div>
+    </div> -->
+</div>

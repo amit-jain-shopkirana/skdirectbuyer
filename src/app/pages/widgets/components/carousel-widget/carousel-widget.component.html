@@ -1,0 +1,46 @@
+<div class="container slider" *ngIf="slides">
+  <div [@slideAnimation]="currentIndex">
+    <ng-template ngFor [ngForOf]="slides" let-slide let-i="index">
+      <img class="slide slide-animation nonDraggableImage" *ngIf="isCurrentSlideIndex(i)" (swiperight)="nextSlide()"
+        (swipeleft)="prevSlide()" (click)="openImg(slide.image)" [src]="slide.image"><!--(click)="openImg(i)"-->
+    </ng-template>
+  </div>
+
+  <button class="arrow prev" id="nextslideBtn" (click)="nextSlide()"></button>
+  <button class="arrow next" id="prevslideBtn" (click)="prevSlide()"></button>
+  <nav class="nav">
+    <div class="wrapper">
+      <ul class="dots">
+        <li class="dot" *ngFor="let slide of slides; let i = index;">
+          <span [ngClass]="{'active':isCurrentSlideIndex(i)}"
+            (click)="setCurrentSlideIndex(i);">{{slide.description}}</span></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<p-dialog [(visible)]="isopenPopup" [resizable]="false" [modal]="true" appendTo="body" positionTop="100"
+    [style]="{width: '100%', height : '100%', overflow: 'auto'}">
+    <p-header>Image</p-header>
+    <div class="ui-fluid">
+      <img class="img-wh" src="{{Img}}" />
+    </div>
+    <!-- <div class="ui-fluid">
+      <ng-template ngFor [ngForOf]="slides" let-slide let-i="index">
+      <img class="img-wh" [src]="slide.image" *ngIf="isCurrentSlideIndex(i)" (swiperight)="nextSlide()"
+      (swipeleft)="prevSlide()" />
+    </ng-template>
+    </div>
+    <button class="arrow prev" (click)="nextSlide()"></button>
+  <button class="arrow next" (click)="prevSlide()"></button>
+  <nav class="nav">
+    <div class="wrapper">
+      <ul class="dots">
+        <li class="dot" *ngFor="let slide of slides; let i = index;">
+          <span [ngClass]="{'active':isCurrentSlideIndex(i)}"
+            (click)="setCurrentSlideIndex(i);">{{slide.description}}</span></li>
+      </ul>
+    </div>
+  </nav> -->
+   
+</p-dialog>

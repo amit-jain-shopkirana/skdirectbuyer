@@ -1,0 +1,43 @@
+<app-sk-dialog>
+    <div topNavigation>
+        <button class="tp-nav-btn" (click)="back()">
+            <span class="fntt"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back</span>
+        </button>
+
+
+    </div>
+    <div body>
+        <div class="inpt-grp">
+            <input class="inpt-src" placeholder="Enter mobile or name" [(ngModel)]="filter.Keyword"
+                (ngModelChange)="onSearch($event)">
+            <div class="inpt-ico">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <div class="bddy">
+            <div class="row" *ngIf="sellerList && sellerList.length > 0">
+                <div class="itm" *ngFor="let seller of sellerList" (click)="addUser(seller)">
+                    <div class="img-lft">
+                        <app-image-not-found [imageFullPath]="baseApiUrl + seller.ImagePath"></app-image-not-found>
+                    </div>
+                    <div class="cont-rght">
+                        <span class="nme">{{seller.Name}}</span><br>
+                        <span class="phn">{{seller.MobileNumber}}</span>
+                        <i class="fa fa-chevron-right pull-right nme" aria-hidden="true"></i>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row cls" *ngIf="sellerList && sellerList.length > 0">
+                <button [disabled]="filter.Skip == 0" class="pull-left btn-tt"
+                    (click)="getPrevSeller()">Previous</button>
+                <button [disabled]="sellerList.length < 10" class="pull-right btn-tt"
+                    (click)="getNextSeller()">Next</button>
+            </div>
+        </div>
+    </div>
+    <div bottomNavigation>
+
+    </div>
+</app-sk-dialog>

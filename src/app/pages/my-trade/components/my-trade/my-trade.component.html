@@ -1,0 +1,16 @@
+<div class="container">
+    <div *ngFor="let order of orderList; let i=index;">
+        <div class="row itm">
+            <div class="col-4 img-brdr">
+                <img class="img-fluid" [src]="order.image">
+            </div>
+            <div class="col-8 lft-cntr">
+                <p><span class="prdt">Date:</span> <span class="prce"> {{order.CreatedDate | date}}</span></p>
+                <p><span class="sec">Delivery:</span> <span class="sec-p"> &#x20B9;{{order.DeliveryCharges }}</span></p>
+                <p><span class="sec">You saved:</span> <span class="sec-p"> &#x20B9;{{order.TotalSavingAmount }}</span></p>
+                <div class="ttl-prc"><span class="prce"> &#x20B9;{{order.TotalPrice }}</span></div>
+
+            </div>
+        </div>
+    </div>
+</div>

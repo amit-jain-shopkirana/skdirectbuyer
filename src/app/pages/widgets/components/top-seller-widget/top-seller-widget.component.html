@@ -1,0 +1,34 @@
+<div class="row tp">
+    <div class="col-8">
+        <span class="hdr">Top Seller</span>
+    </div>
+    <div class="col-4">
+        <a class="btnnn" (click)="viewAllSellers()">View all <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
+    </div>
+</div>
+
+
+<div class="scrolling-wrapper tp" *ngIf="topSellerList && topSellerList.length > 0">
+    <div class="card-1" *ngFor="let seller Of topSellerList">
+        <div class="brdr" (click)="openTopSeller(seller)">
+            <div class="wdt">
+                <div>
+                    <app-image-not-found imageType="store" [imageFullPath]="baseUrl + seller.ImagePath"></app-image-not-found>
+                    <!-- <img #image (error)="imageNotFound(category)" [hidden]="category.notFound" [src]="baseUrl + category.ImagePath" class="imgg">
+                    <img class="imgg" *ngIf="category.notFound" src="assets/images/notfound.png"> -->
+                </div>
+            </div>
+        </div>
+        <div class="slr-nm">
+            {{( seller.FirstName? seller.FirstName: '' 
+            + ' ' + seller.MiddleName? seller.MiddleName: '' 
+            + ' ' + seller.LastName ? seller.LastName : '') | slice:0:30}}
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="!topSellerList || !(topSellerList.length > 0)">
+    <app-no-item-found body="For your location there is no seller active, please check in future."
+        header="No Seller Found"></app-no-item-found>
+</div>

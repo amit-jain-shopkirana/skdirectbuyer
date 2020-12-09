@@ -1,0 +1,56 @@
+.bck {
+  background-color: #FFFAF7;
+  min-height: 100vh;
+  padding: 10px 10%;
+}
+
+
+.lgn {
+  padding-top: 25%;
+
+  .hrd {
+    color: rgb(187, 184, 184);
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  .spp {
+    padding-top: 7px;
+    font-size: .8rem;
+    font-weight: bold;
+  }
+
+}
+
+.btn-mthd{
+    margin-top: 10%;
+
+    .btn-lgn-mthd{
+        width: 100%;
+        min-height: 20px;   
+        border: solid 1px  #cc836b;
+        border-radius: 4px;
+        padding: 20px;
+        background: white;
+        .clr{
+            color: rgb(172, 164, 164);
+            font-weight: 600;
+            font-size: .9rem;
+        }
+        .logo-k{
+            color:  #cc836b;
+        }
+    }
+
+    .btn-lgn-mthd:hover{
+        background: #cc836b;
+        .clr,.logo-k{
+            color: white;
+        }
+        
+    }
+}
+
+.mr-11{
+    margin-top: 30px;
+}

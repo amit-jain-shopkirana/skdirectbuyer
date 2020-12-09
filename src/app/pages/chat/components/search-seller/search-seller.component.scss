@@ -1,0 +1,87 @@
+.inpt-grp {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    .inpt-src {
+      width: 100%;
+      font-size: .9rem;
+      padding: .7em 1em;
+      border: none;
+      border-bottom: solid 1px lightgray;
+      border-top: solid 1px lightgray;
+    }
+  
+    inpt-src:focus {
+      outline: none;
+    }
+  
+    .inpt-ico {
+      position: absolute;
+      right: 0em;
+      top: 0.0em;
+      color: gray;
+      border-left: solid 1px lightgray;
+  
+      i {
+        padding: 0.8em;
+      }
+    }
+  }
+  
+
+  .bddy {
+    padding-top: 2.5em;
+    // flex: none;
+  
+  }
+
+
+  .itm{
+    background: white;
+    border-bottom: solid 1px orangered;
+    margin-bottom: .2em;
+    .img-lft{
+      width: 20%;
+      padding: 4px 4px 0px 4px;
+      display: inline-block;
+    }
+  
+    .cont-rght{
+      width: 80%;
+      padding: 4px 4px 0px 4px;
+      display: inline-block;
+
+      .nme{
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: gray;
+      }
+
+      .phn{
+        font-size: .9rem;
+        font-weight: bold;
+        color: rgb(238, 140, 104);
+      }
+    }
+  }
+  
+
+  .cls{
+    display: block;
+    padding: 0em .2em;
+  }
+
+  .btn-tt{
+    width: 6em;
+    background: #E9754E;
+    border: solid 1px #E9754E;
+    border-radius: .3em;
+    padding: .2em;
+    color: white;
+    font-weight: 500;
+  }
+
+  .btn-tt:disabled{
+    opacity: .6;
+    background-color: gray;
+  }

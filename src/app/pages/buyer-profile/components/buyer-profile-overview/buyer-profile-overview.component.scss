@@ -1,0 +1,228 @@
+
+
+.sctn {
+    position: relative;
+    background-color: white;
+  }
+  
+  #img-sctn {
+    padding: .5em !important;
+    border-right: solid 1px #E9754E;
+  
+    .p-img-nt {
+      text-align: center;
+  
+      margin-top: .4em;
+      color: #E9754E;
+  
+  
+    }
+  
+    .p-img {
+      margin-top: .4em;
+      text-align: center;
+  
+      img {
+        width: 20vw;
+      }
+    }
+  }
+  
+  #pe-othr-info {
+    margin-top: .4em;
+    padding: .5em 1em !important;
+    line-height: 1.5em;
+    .sn {
+      font-size: 1.1rem;
+      color: #E9754E;
+      font-weight: bold;
+    }
+  
+    .nme {
+      font-size: .9rem;
+      font-weight: bold;
+    }
+    .s-nme{
+      font-size: .9rem;
+    }
+  }
+  
+  
+  .edt{
+    font-size: .9rem;
+    color: #E9754E;  
+    font-weight: bold;
+    position: absolute;
+    right: 1em;
+    top: .2em;
+    z-index: 1;
+  }
+  
+  .pe-mr-10{
+    margin-top: 1em;
+  }
+  
+  
+  .addr{
+    position: relative;
+    border-bottom: solid 1px #E9754E;
+    padding: 2.4em 1em;
+    .nme-a{
+      font-size: 1.2rem;
+      color: #E9754E;
+      font-weight: bold;
+    }
+  }
+  
+  .ad-nw{
+    color: #E9754E !important;
+    font-size: .9rem;
+  }
+  
+  .skp{
+    position: absolute;
+    right: -.6em;
+    top: .5em;
+    color: #E9754E;
+  }
+  
+  
+  :host::ng-deep .nv-bar{
+    display: none;
+  }
+  .loc
+  {
+    margin-right: 23px;
+  }
+  .e1
+{
+  color: blue;
+}
+.t1
+{
+  color: red;
+}
+
+/////
+.img-cntr {
+  border: solid 1px #E9754E;
+  padding: 0em .2em .6em .2em;
+  border-radius: 5px;
+  height: 30vh;
+  text-align: center;
+  width: 320px;
+
+ 
+
+  img {
+
+    max-height: 18vh;
+    padding-top: 1vh;
+    max-width: 90%;
+  }
+
+  .lnk {
+    float: right;
+    padding: .2em .5em .2em .2em;
+    color: white;
+  }
+}
+
+.img-row {
+  background-color: white;
+  padding: .5em;
+}
+
+.tl-grd {
+  height: 5vh;
+  background: #E9754E;
+  margin: 0em -.2em;
+  border-bottom: solid 1px #E9754E;
+}
+
+.txt-box {
+  font-size: .8rem;
+}
+
+.img-cntr-1 {
+  border: solid 1px #E9754E;
+  padding: 2em .2em .6em .2em;
+  border-radius: 5px;
+  height: 24vh;
+  text-align: center;
+  background: #E9754E;
+  color: white;
+
+  i {
+    color: white;
+  }
+}
+
+:host ::ng-deep .nv-bar {
+  background-color: white !important;
+}
+
+.sk-btn-primary {
+  border: solid 1px #E9754E;
+  color: white;
+  background: #E9754E;
+  border-radius: 5px;
+  padding: .3em 2em;
+  float: right;
+  margin: .5em;
+}
+
+
+
+
+.deflt-i {
+  float: left;
+  padding: 0.4em 0.4em 0em 0.3em;
+  color: white;
+}
+
+
+:host ::ng-deep .aa .p-overlaypanel {
+
+  z-index: 1001 !important;
+  transform-origin: center top !important;
+  top: 3vh !important;
+  left: auto !important;
+  transform: translateY(0px) !important;
+  opacity: 1 !important;
+  right: 0px !important;
+}
+
+
+:host ::ng-deep .aa .p-overlaypanel-content {
+  padding: 0em !important;
+}
+
+:host ::ng-deep .p-menu {
+  font-size: .8rem;
+  width: 7rem;
+}
+
+:host ::ng-deep .p-menu .p-submenu-header {
+  padding: 0.2rem .5rem;
+
+}
+
+.aa {
+  position: relative;
+}
+.add1
+{
+  font-size: x-large;
+    font-weight: 500;
+}
+// .chk-btn{
+//   float: right;
+//   background-color: #E9754E;
+//   color: white;
+//   font-size: 20px;
+//   border: solid 1px #E9754E;
+//   border-radius: 4px;
+//   width: 33%;
+// }
+

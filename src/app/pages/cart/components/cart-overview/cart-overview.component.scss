@@ -1,0 +1,197 @@
+.itm {
+  background: white;
+  min-height: 100px;
+  border: solid 1px white;
+  border-radius: 3px;
+  margin: 10px 5px 0px 5px;
+}
+
+.img-brdr {
+  border-right: solid 1px lightgray;
+  text-align: center;
+  padding: 10px 0px !important;
+
+  img {
+    width: 80%;
+  }
+}
+
+.lft-cntr {
+  padding: 6px 10px !important;
+  position: relative;
+}
+
+.dlt {
+  position: absolute;
+  right: 6px;
+  top: 2px;
+  font-size: 20px;
+}
+
+.prdt {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.prc {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  color: #E9754E !important;
+  font-size: 21px;
+  margin-right: 132px;
+  margin-bottom: 31px;
+}
+
+.prc-amt {
+  color: #E9754E !important;
+  font-size: 21px;
+}
+
+.cart {
+  position: relative;
+}
+
+.btm-nv {
+  background: white;
+  padding: 0px 10px;
+  width: 100%;
+}
+
+.itm {
+  font-weight: bold;
+}
+
+.chk-btn {
+  right: 0px;
+  position: absolute;
+  top: 0px;
+  background: #E9754E;
+  color: white;
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  border: solid 1px #E9754E;
+  border-radius: 8px;
+}
+
+.arw {
+
+  padding: 2px 4px;
+  background: white;
+  color: #E9754E;
+  border-radius: 17px;
+  font-size: 16px;
+
+}
+
+.back {
+  float: right;
+  color: #E9754E !important;
+  padding-top: 0px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.clr {
+  color: #E9754E;
+}
+
+.nt-fnd {
+  position: fixed;
+  top: 0px;
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  padding-top: 20vh;
+
+
+  .hdr{
+    font-size: 1.5rem;
+  }
+  a{
+      color: #E9754E;
+      font-weight: bold;
+  }
+}
+.btnnp {
+  background: #E9754E;
+  margin: .5em;
+  color: white;
+  font-size: 1.1rem;
+  padding: .6em 1em;
+  border: solid 1px #E9754E;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.pl-m {
+  margin-top: 2.5em;
+  margin-bottom: 1.8em;
+  margin-right: -15px;
+  .new-a {
+    background-color: #E9754E;
+    padding: .4em;
+    margin: 0em .6em;
+  }
+
+  .ip{
+    text-align: center;
+  
+  }
+}
+.addBtn
+{
+  margin-top: 70px;
+}
+.lft
+{
+  top : 191x;
+  // margin-right: 144px;
+}
+p {
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+.a1
+{
+  margin-right: 137px;
+}
+.fntt{
+  font-size: 19px;
+}
+.tp-btn{
+  
+  background-color: #E9754E;
+  color: white;
+  border: none;
+
+}
+
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 153%;
+  // padding: 20px;
+  text-align: center;
+  height: 38%;
+}
+.txtctr
+{
+  text-align: center;
+  font-size: x-large;
+  margin-top: 10px;
+}
+.stock
+{
+  color: green;
+  font-weight: 600;
+}

@@ -1,0 +1,22 @@
+<div *ngIf="skAlertLayout && skAlertLayout.isShowAlert">
+    <div id="alert-blk-ui">
+        <p-blockUI [blocked]="skAlertLayout.isShowAlert"></p-blockUI>
+    </div>
+
+    <p-dialog [(visible)]="skAlertLayout.isShowAlert" appendTo="body" [blockScroll]="true" [closable]="false"
+        [style]="{width: '90vw'}">
+        <div class="hrd cntr">
+            {{skAlertLayout.headerMessage}}
+        </div>
+        <div class="cntr">
+            {{skAlertLayout.bodyMessage}}
+        </div>
+
+        <p-footer>
+            <div class="cntr">
+                <button class="sk-btn sk-btn-primary" id="okBtn" (click)="close()">Ok</button>
+            </div>
+
+        </p-footer>
+    </p-dialog>
+</div>

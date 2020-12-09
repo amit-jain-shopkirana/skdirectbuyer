@@ -1,0 +1,112 @@
+<app-top-navigation-wrapper>
+    <div class="row">
+        <div class="col-6">
+            <span class="hd" (click)="myOrder()">
+                <img class="img-rt" src="assets/images/icons/return.svg">
+                <span class="btn-rt">&nbsp;My Order</span>
+            </span>
+        </div>
+
+    </div>
+</app-top-navigation-wrapper>
+
+<div class="ord-d">
+    Order on : <br>
+    Order ID : 1253299-{{OrderId}}
+</div>
+
+
+
+<div style="margin-bottom: 8px;">
+    <div class="s-add">
+        <p>Order on {{orderData.OrderDate | date : 'mediumDate'}}</p>
+        <p class="gry"> SellerName : {{orderData.SellerName}}</p>
+        <p class="gry">Payment Mode : {{orderData ? orderData.PaymentMode : 0}}</p>
+
+    </div>
+    <div *ngFor="let items of orderDetailList">
+        <div class="row itm">
+            <div class="col-5 img-brdr">
+                <img [src]="baseUrl + items.ImagePath" alt="{{items.ProductName}}">
+            </div>
+            <div class="col-7 lft-cntr">
+                <p>
+                    <span class="prdt">{{items.ProductName}}
+                        <span
+                            *ngIf="items.AttributeList != null && items.AttributeList.length > 0 && items.AttributeList.length <= 2">
+                            (
+                            <span class="atr"
+                                *ngFor="let attr of items.AttributeList">{{attr ? attr.AttributeValue : ''}}{{attr.length != 0 ? ',' : ''}}</span>)
+                        </span>
+                        <span *ngIf="items.AttributeList != null && items.AttributeList.length > 2"
+                            style="font-weight: 100;font-size: 13px;">(<span class="atr"
+                                *ngFor="let attr of items.AttributeList">{{attr ? attr.AttributeValue : ''}}{{attr.length != 0 ? ',' : ''}}</span>)</span>
+                    </span>
+                </p>
+
+                <!-- <span>Price : &#8377; {{items.SellingPrice}} </span> -->
+                <span style="color: gray;">Qty : {{items.Quantity}} </span>
+                <br><span style="font-size: 1rem;">&#8377; {{items.TotalPrice}} </span>
+                <!-- <span class="btn-prc">
+                    &#8377; {{items.TotalPrice}}
+                </span> -->
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="s-add">
+        <div class="wd">
+            <div class="lft-wd">
+
+            </div>
+            <div class="rgt-wd">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="dtl-hd s-clr">
+    Shipping Details
+</div>
+<div class="itm">
+
+    <div class="col-12 s-add">
+        <p><span class="prdt">
+                {{(orderData? orderData.AddressOne : '')}}
+            </span></p>
+        <p>
+            {{( orderData ? orderData.AddressTwo : '')}}
+        </p>
+        <p>
+            {{( orderData ? orderData.AddressThree : '')}}
+        </p>
+        <p>{{orderData ? orderData.Pincode : 0}}</p>
+
+    </div>
+</div>
+
+
+<div class="s-add">
+    <div class="hdr">
+        Price Details
+    </div>
+</div>
+
+
+
+<div class="col-md-3 col-sm-6 totalPrice">
+    <span>Total Order Value : &#8377; {{orderData ? orderData.TotalPrice : 0}}/-</span>
+</div>
+<div class="col-md-3 col-sm-6" *ngIf="cancelMode">
+    <div class="productThumbBox">
+        <div class="row btn-brdr">
+            <div class="col-md-3 col-sm-6" (click)="statusChange()">
+                <span>Cancel Order</span>
+            </div>
+        </div>
+    </div>
+</div>

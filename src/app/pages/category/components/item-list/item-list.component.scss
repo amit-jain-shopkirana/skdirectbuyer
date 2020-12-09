@@ -1,0 +1,208 @@
+.hdr {
+  color: orangered;
+  font-size: 22px !important;
+  font-weight: bold !important;
+}
+
+.tp {
+  margin: 5px 0px 0px 0px;
+
+}
+
+.cr {
+  background-color: white;
+  margin-top: 55px;
+}
+
+.crrr {
+  width: 100%;
+  // position: fixed;
+  z-index: 1;
+
+}
+
+.btn12 {
+  width: 10%;
+  display: inline-block;
+  border: none;
+  background: white;
+  min-height: 100%;
+  padding: .6em 0em .5em 0em;
+  border-bottom: solid 1px gray;
+}
+
+.searchKeyword {
+  width: 100%;
+  padding: 8px;
+  border: solid 1px white;
+  border-bottom: solid 1px #58CCC1;
+}
+
+.itm {
+  background: white;
+  min-height: 100px;
+  border: solid 1px rgb(206, 204, 204);
+  border-radius: 7px;
+  margin: 10px 12px 0px 13px;
+  box-shadow: 0px 0px 2px 2px rgba(206, 204, 204, .4);
+}
+
+.lft-cntr {
+  padding: 5px 5px !important;
+  position: relative;
+}
+
+.prdt {
+  font-size: .9rem;
+  font-weight: bold;
+  color: #343553;
+}
+
+.prc {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  color: #E9754E !important;
+  font-size: 21px;
+}
+
+.btn-prc {
+  float: right;
+  border: solid 1px black;
+  padding: 5px 20px;
+  border-radius: 39px;
+  background-color: aquamarine;
+  margin-top: 5px;
+}
+
+.img-brdr {
+  text-align: center;
+  padding: 5px 5px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 90%;
+  }
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+}
+
+.tp-nav-btn {
+  background: none;
+  border: none;
+  color: #58CCC1;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.sp {
+  margin-top: -23px;
+}
+
+.btn2 {
+  margin-top: -185px;
+}
+
+.btn1 {
+  margin-top: -54px;
+}
+
+.fl {
+  text-align: center;
+  font-weight: 600;
+}
+
+.search-results {
+  flex: none;
+}
+
+:host::ng-deep.cntr {
+  flex: none;
+  background-color: white !important;
+}
+
+
+.search-results {
+  flex: none;
+}
+
+.noData {
+  margin-top: 12px;
+  font-size: larger;
+  color: orangered;
+  text-align: center;
+}
+
+.img-1 {
+  width: 26px;
+}
+
+
+.img-12-img {
+  max-width: 83%;
+  max-height: 20vh;
+}
+
+
+.prccc {
+
+  .spr {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .mrp {
+    font-weight: bold;
+    color: rgb(196, 195, 195);
+    padding-left: 1em;
+  }
+
+  .prcnt {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #58CCC1;
+
+  }
+}
+
+
+.incl {
+  color: #58CCC1;
+  font-size: .8rem;
+  font-weight: bold;
+}
+
+.btn-skd {
+  background-color: #343553;
+  color: #58CCC1;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: solid 1px #343553;
+  border-radius: 17px;
+  padding: .2em 1.2em;
+}
+
+.nw {
+  position: absolute;
+  bottom: .5em;
+  right: .5em;
+}
+
+
+:host ::ng-deep .cntr {
+  margin-bottom: 0px !important;
+  margin-top: 55px !important;
+  background-color: white !important;
+  overflow-y: auto !important;
+  padding-bottom: 0px !important;
+  height: calc(100vh - 64px) !important;
+  
+}
+:host ::ng-deep .nv-bar{
+  display: none;
+}

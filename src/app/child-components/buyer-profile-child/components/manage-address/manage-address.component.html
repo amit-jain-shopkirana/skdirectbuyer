@@ -1,0 +1,88 @@
+<!-- <app-sk-dialog>
+    <div topNavigation>
+        <button mat-icon-button (click)="closePopup()" 
+            class="example-icon" aria-label="Example icon-button with menu icon">
+            <span class="fntt"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back</span>
+        </button>
+    </div>
+    <div body>
+        <form class="modal-content" name="form" #addressForm="ngForm" (ngSubmit)="saveAddress(addressForm)">
+            <div class="form-body">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"><b>Full Name</b></label>
+                                <input type="text" class="form-control" [(ngModel)]="location.AddressOne"
+                                    id="addressLineOne" name="addressLineOne" placeholder="Address Line One"
+                                    maxlength="100" #addressLineOne="ngModel" required="1">
+                                <div
+                                    *ngIf="addressForm.submitted && !addressLineOne.valid && addressLineOne.errors.required">
+                                    <code>required</code>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"><b>Street Address</b></label>
+                                <input type="text" class="form-control" [(ngModel)]="location.AddressTwo"
+                                    id="addressLineTwo" name="addressLineTwo" placeholder="enter street address"
+                                    maxlength="100" #addressLineTwo="ngModel" required="1">
+                                <div
+                                    *ngIf="addressForm.submitted && !addressLineTwo.valid && addressLineTwo.errors.required">
+                                    <code>required</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"><b>Landmark</b></label><span class="opt"> (optional)</span>
+                                <input type="text" class="form-control" rows="3" [(ngModel)]="location.AddressThree"
+                                    id="addressLineThree" name="addressLineThree" placeholder="Address Line Three"
+                                    maxlength="100" #addressLineThree="ngModel">
+                                <div
+                                    *ngIf="addressForm.submitted && !addressLineThree.valid && addressLineThree.errors.required">
+                                    <code>Address 3 is required</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="pin"><b>Pincode</b></label>
+                            <input type="number" class="form-control h1" placeholder="enter pincode" name="pinB"
+                                [(ngModel)]="location.Pincode" #pinB="ngModel" required>
+                            <div
+                                *ngIf="addressForm.submitted && !pinB.valid && pinB.errors.required">
+                                <code>required</code>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"><b>City</b></label>
+                                <input type="text" class="form-control" rows="3" [(ngModel)]="location.City" id="city"
+                                    name="city" placeholder="Address Line Three" maxlength="100" #city="ngModel" required>
+                                <div *ngIf="addressForm.submitted && !city.valid && city.errors.required">
+                                    <code>required</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"><b>State</b></label>
+                                <input type="text" class="form-control" rows="3" [(ngModel)]="location.State" id="State"
+                                    name="State" placeholder="Address Line Three" maxlength="100" #State="ngModel" required>
+                                <div *ngIf="addressForm.submitted && !State.valid && State.errors.required">
+                                    <code>required</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div bottomNavigation class="col-md-4 btm">
+                <button class="chk-btn" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+
+</app-sk-dialog> -->

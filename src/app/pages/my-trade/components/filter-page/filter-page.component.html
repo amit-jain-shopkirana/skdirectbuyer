@@ -1,0 +1,59 @@
+<app-top-navigation-wrapper>
+    <div class="row">
+        <div class="col-10">
+            <button class="tp-nav-btn" (click)="display = false;" ><i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp;
+                Filter</button>
+          <!-- <span class="hd"><b> My Order</b></span> -->
+        </div>
+        <!-- <div class="col-2 text-right">
+           <div class="txtt" (click)="display = false"><i class="fa fa-filter fa-lg" aria-hidden="true"></i>FilterClose</div> 
+        </div> -->
+      </div>
+</app-top-navigation-wrapper>
+<div class="card" *ngIf="display">
+    <div class="row">
+      <div class="col-6" >
+        <div class="form-group">
+          <label for="orderType">Start Date :</label>
+          <input type="date" id="startDate" name="startDate" class="form-control mb-4"
+          [(ngModel)]="searchData.FromDate">
+          </div>
+      </div>
+      <div class="col-6" >
+        <div class="form-group">
+          <label for="orderType">End Date :</label>
+          <input type="date" id="endDate" name="endDate" class="form-control mb-4"
+          [(ngModel)]="searchData.ToDate" >
+          </div>
+      </div>
+     
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label> </label>
+          <div>
+            <button type="button" class="btn btn-outline-dark active btn1"
+              (click)="ngOnInit();">Reset</button>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-8 text-right">
+        <div class="form-group">
+          <label> </label>
+          <div class="text=right">
+            <button type="button" class="btn btn-outline-primary active btn2" value="Search" (click)="filter(searchData)">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr style="border: width 2px;">
+
+  </div>
+
+  <div *ngIf="display == false">
+      <app-my-order  (ngOnInit)="filterData($event)"></app-my-order>
+  </div>

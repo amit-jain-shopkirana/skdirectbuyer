@@ -1,0 +1,78 @@
+<div class="bck" *ngIf="!isPasswordLogin">
+    <div class="lgn">
+        <div class="hrd">
+            Enter OTP
+        </div>
+        <div class="spp">
+            Send to
+            <span class="bld">XXXXX</span>
+            <span class="bld"> {{MobileNumber.substring(0, 5)}}</span>
+        </div>
+        <!-- <div class="tme">
+            {{remainingTimeString}}
+        </div> -->
+        <div class="inpt">
+            <input name="input1" #input1 size="1" type="tel" pattern="[0-9]{1}" maxLength="1"
+                [(ngModel)]="inputArray[0]" (ngModelChange)="onInputChange(0)" (keyup)="onKeyUp($event, 0)">
+        </div>
+        <div class="inpt">
+            <input name="input2" #input2 size="1" type="tel" pattern="[0-9]{1}" maxLength="1"
+                [(ngModel)]="inputArray[1]" (ngModelChange)="onInputChange(1)" (keyup)="onKeyUp($event, 1)">
+        </div>
+        <div class="inpt">
+            <input name="input3" #input3 size="1" type="tel" pattern="[0-9]{1}" maxLength="1"
+                [(ngModel)]="inputArray[2]" (ngModelChange)="onInputChange(2)" (keyup)="onKeyUp($event, 2)">
+        </div>
+        <div class="inpt">
+            <input name="input4" #input4 size="1" type="tel" pattern="[0-9]{1}" maxLength="1"
+                [(ngModel)]="inputArray[3]" (ngModelChange)="onInputChange(3)" (keyup)="onKeyUp($event, 3)">
+        </div>
+    </div>
+
+    <div *ngIf="WrongOTP">
+        <p>Invalid OTP</p>
+    </div>
+    <div class="nt-b">
+        <span class="s-clr">Resend OTP&nbsp;</span><span *ngIf="remainingTimeString != '00:00'"> in
+            {{remainingTimeString}}</span>
+        <a (click)="resendOtp()" class="s-clr"><span *ngIf="!remainingTimeInSec">click here</span></a>
+    </div>
+    <div class="btn-nxt">
+        <button #button1 id="nxt2Btn" (click)="onSubmitOtp()">
+            Next &nbsp;
+            <i class="pi pi-arrow-right"></i>
+        </button>
+    </div>
+    <!-- <a href="login"><span class="rs" ><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</span></a> -->
+
+
+</div>
+
+
+<div class="bck" *ngIf="isPasswordLogin">
+    <form name="passwordForm" #passwordForm="ngForm" (ngSubmit)="onSubmitPassword(passwordForm)">
+        <div class="lgn">
+            <div class="hrd">
+                Password Verification
+            </div>
+            <div class="spp">
+                Enter the Passwod
+            </div>
+            <div class="mb">
+                <input class="in-1" name="pass" type="password" required placeholder="Enter password"
+                    [(ngModel)]="password" #pass="ngModel">
+                <img class="inr-img" src="assets/images/key.png">
+                <div *ngIf="passwordForm.submitted && pass.invalid">
+                    <code>Enter the password</code>
+                </div>
+            </div>
+        </div>
+        <!-- <a href="login"><span class="rs" ><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</span></a> -->
+        <div class="btn-nxt">
+            <button #button1 id="nxt3btn" type="submit">
+                Next &nbsp;
+                <i class="pi pi-arrow-right"></i>
+            </button>
+        </div>
+    </form>
+</div>

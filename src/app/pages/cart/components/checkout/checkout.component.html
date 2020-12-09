@@ -1,0 +1,227 @@
+<div *ngIf="checkOutDetail">
+    <app-top-navigation-wrapper>
+        <button  (click)="reviewBasket()" id="checkoutHeaderBtn" class="tp-btn">
+
+            <span class="fntt"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Review Basket</span>
+        </button>
+    </app-top-navigation-wrapper>
+
+
+    <div style="margin-bottom: 100px;">
+        <div class="row bck">
+            <div class="col-12">
+                <span class="amt-txt">Total Amount</span>
+                <div class="amt">
+                    &#8377; {{checkOutDetail.TotalAmount}}
+                </div>
+            </div>
+        </div>
+
+        <div class="row bck">
+            <div class="col-12">
+                <div class="cpn">
+                    Apply Coupon Code
+
+                </div>
+                <div class="rght-arw">
+                    <i class="fa fa-angle-right fa-2x" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                Price Details
+            </div>
+        </div>
+
+        <div class="row bck">
+            <div class="col-12">
+                <table class="tbb">
+                    <tr>
+                        <td>
+                            Order Value
+                        </td>
+                        <td class="bld prm-c">
+                            &#8377; {{checkOutDetail.TotalAmount}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Delivery Charges
+                        </td>
+                        <td class="sec-c">
+                            Free
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="row bck mr-1n">
+            <div class="col-12">
+                <table class="tbb">
+                    <tr>
+                        <td>
+                            Total Amount
+                        </td>
+                        <td class="bld">
+                            &#8377; {{checkOutDetail.TotalAmount}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class=" prm-c">
+                            Coupon Discount
+                        </td>
+                        <td class="bld prm-c">
+                            NA
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="row bck mr-1n">
+            <div class="col-12">
+                <table class="tbb">
+                    <tr>
+                        <td>
+                            Amount Payable
+                        </td>
+                        <td class="bld">
+                            &#8377; {{checkOutDetail.TotalAmount}}
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                Payment Option
+            </div>
+        </div>
+        <div class="row bck">
+            <div class="col-1">
+                <p-radioButton name="groupname" id="groupname" [value]="null" [(ngModel)]="paymentMode"></p-radioButton>
+                <!-- <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                    [(ngModel)]="paymentMode">
+                    <mat-radio-button class="example-radio-button" color="accent" [value]="null">
+
+                    </mat-radio-button>
+                </mat-radio-group> -->
+            </div>
+            <div class="col-11">
+                <div class="pmnt">
+
+                    <svg class="svgg" width="60" height="43" xmlns="http://www.w3.org/2000/svg">
+                        <image href="assets/images/cod.svg" width="60" height="60" />
+                    </svg>
+                    <span class="img-txt">Pay on Delivery
+                        <span class="lwr-txt">(Cash/Card/Cheque)</span>
+                    </span>
+                    <span class="btn-prc">
+                        &#8377; {{checkOutDetail.TotalAmount}}
+                    </span>
+                </div>
+                <div class="rght-arw">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                Delivery Instruction
+            </div>
+        </div>
+        <div class="row bck" *ngFor ="let deliver of deliveryOptionList">
+            <div class="col-1">
+                <p-radioButton id="pickup" name="groupname" value={{deliver.Id}} [(ngModel)]="DeliveryOption" (click)="delivery(DeliveryOption)"></p-radioButton>
+            </div>
+            <div class="col-11">
+                <div class="pmnt">
+                    <span class="delivery-txt">{{deliver.Delivery}}
+                    </span>
+                </div>
+                <div class="rght-arw">
+
+                </div>
+            </div>
+            <!-- <div class="col-1">
+                <p-radioButton id="homedelivery" name="groupname" value="Home Delivery" [(ngModel)]="DeliveryOption" (click)="delivery(DeliveryOption)"></p-radioButton>
+            </div>
+            <div class="col-11">
+                <div class="pmnt">
+                    <span class="delivery-txt">Home Delivery
+                    </span>
+                </div>
+                <div class="rght-arw">
+
+                </div>
+            </div> -->
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                Address
+                <a class="add-n-a" (click)="openAddNewAddress()">Add new address</a>
+            </div>
+
+        </div>
+        <div class="row" *ngFor="let addr of addressList">
+            <div [ngClass]="{'col-12  bck mr-1n': true, 'slct': locationId === addr.Id}"
+                (click)="onChangeAddress(addr)">
+                <div *ngIf="locationId === addr.Id" class="slct-icon"><i class="fa fa-check-circle fa-lg"
+                        aria-hidden="true"></i></div>
+                <div class="nme">{{addr.AddressOne}}</div>
+                <p>{{addr.AddressTwo}}</p>
+                <p>{{addr.AddressThree}}</p>
+                <p>{{addr.Pincode}}</p>
+            </div>
+            <code *ngIf="isInvalid">Please Select One Address</code>
+
+        </div>
+    </div>
+    <!-- <button class="chk-btn" (click)="addAddress()"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
+        Add New Address </button>
+     -->
+    <app-bottom-navigation-wrapper>
+        <div class="btm-nv">
+            <div class="row">
+                <div class="col-12">
+                    <span class="prc-amt">&nbsp; &#x20B9; {{checkOutDetail.TotalAmount}}</span>
+                    <br>
+                    <span class="itm">Total Item:{{checkOutDetail.TotalItems}}</span>
+                    <button class="chk-btn" id="placeBtN" (click)="placeOrder()">Place Order <i class="fa fa-arrow-right arw"
+                            aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </app-bottom-navigation-wrapper>
+</div>
+
+
+<div *ngIf="afterInit && !checkOutDetail" class="nt-fnd">
+    <img src="assets/images/empty_cart.png">
+    <div class="hdr">Nothing in Basket</div>
+    <div><a (click)="navigateToSeller()">Keep Shoping</a></div>
+</div>
+
+
+<div *ngIf="showEditAddressDialog">
+    <app-manage-address [location]="selectedLocation" (onClosePopup)="closeEditAddress()"
+        (onSaveAddress)="onUpdateAddress($event)"></app-manage-address>
+</div>
+
+
+<!-- 
+<p-confirmDialog #cd header="Confirm" [style]="{width: '90vw'}" [closable]="false">
+    <p-footer>
+        <button type="button" class="sk-btn sk-btn-secondary" (click)="cd.reject()">No</button>
+        <button type="button" class="sk-btn sk-btn-primary" (click)="cd.accept()">Yes</button>
+    </p-footer>
+</p-confirmDialog> -->

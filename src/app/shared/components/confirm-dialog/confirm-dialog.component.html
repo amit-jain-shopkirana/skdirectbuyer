@@ -1,0 +1,23 @@
+<div *ngIf="confirmModel && confirmModel.show">
+    <div id="alert-blk-ui">
+        <p-blockUI [blocked]="confirmModel.show"></p-blockUI>
+    </div>
+
+    <p-dialog [(visible)]="confirmModel.show" appendTo="body" [blockScroll]="true" [closable]="false"
+        [style]="{width: '90vw'}">
+        <div class="hrd cntr">
+            {{confirmModel.headerMessage}}
+        </div>
+        <div class="cntr">
+            {{confirmModel.bodyMessage}}
+        </div>
+
+        <p-footer>
+            <div class="cntr">
+                <button class="sk-btn sk-btn-primary" id="yBtn" (click)="onConfirm()">{{confirmModel.yesButton}}</button>
+                <button class="sk-btn sk-btn-primary" id="nBtn" (click)="onDismiss()">{{confirmModel.noButton}}</button>
+            </div>
+
+        </p-footer>
+    </p-dialog>
+</div>

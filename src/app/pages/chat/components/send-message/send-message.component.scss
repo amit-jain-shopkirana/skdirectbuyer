@@ -1,0 +1,84 @@
+:host ::ng-deep .nv-bar{
+    background-color: white;
+} 
+
+:host ::ng-deep .nv-bar{
+    display: block;
+}
+
+
+:host ::ng-deep .dialog-my{
+    padding-bottom: 55px !important;
+    max-height: calc((var(--vh, 1vh) * 100) - 55px) !important;
+}
+
+
+
+.inp{
+    width: 78%;
+    height: -webkit-fill-available;
+    border: none;
+}
+
+.n-bt{
+    width: 22%;
+    height: -webkit-fill-available;
+    border: none;
+}
+
+.msg-cntr{
+    display:  flow-root;
+    
+}
+.msg{
+    max-width: 80%;
+    display: block;
+    padding: .6em;
+    background: white;
+    margin: .5em 0em;
+    border: solid 1px white;
+    border-radius: .5em;
+    color: gray;
+    font-weight: bold;
+}
+
+.rght{
+    float: right;
+    text-align: right;
+}
+
+.lft{
+    float: left;
+    text-align: left;
+}
+
+.tme{
+    display: block;
+    width: 100%;
+    font-size: .8rem;
+    font-weight: bold;
+    margin-right: .4em;
+    margin-left: .4em;
+    color: gray;
+}
+
+:host ::ng-deep .p-inputtext {
+    height: 33px;
+}
+
+
+.ar-bd{
+    overflow-y: auto;
+    height: calc((var(--vh, 1vh) * 100) - 110px) !important;
+    max-height: calc((var(--vh, 1vh) * 100) - 110px) !important;
+    overflow-x: hidden;
+}
+
+.search-results {
+    flex: none;
+}
+
+:host ::ng-deep .cntr {
+    background-color: #FFFAF7 !important;
+    flex: none;
+}

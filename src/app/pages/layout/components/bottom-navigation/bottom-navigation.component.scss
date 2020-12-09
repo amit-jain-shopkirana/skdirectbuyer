@@ -1,0 +1,103 @@
+// .toolbarNav {
+//   position: fixed;
+//   bottom: 0;
+//   z-index: 8;
+//   display: flex;
+//   justify-content: space-between;
+//   padding: 1em;
+//   background-color: white;
+
+//   -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+//   /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+//   -moz-box-shadow: 3px 3px 5px 6px #ccc;
+//   /* Firefox 3.5 - 3.6 */
+//   box-shadow: 2px 2px 4px 5px #ccc;
+//   /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+// }
+
+// .material-icons.color_blue:hover {
+//   color: blueviolet;
+// }
+
+
+// .aa {
+//   margin-top: -25px;
+//   .p{
+//     margin-left: -4px;
+//   }
+//   .b{
+//     margin-left: -4px;
+//   }
+// }
+// .ax{
+//   margin-top: -18px;
+// }
+
+// .ab {
+//   margin-left: -24px;
+//   margin-top: -88px;
+//   font-size: 42px;
+// }
+
+// .txt{
+//   font-family: sans-serif !important;
+//   font-size: 12px;
+//   line-height: 1.5;
+//   text-align: center;
+//   width: 100%;
+
+// }
+
+.nv-bar {
+  z-index: 8;
+  position: fixed;
+  min-height: 55px;
+  max-height: 55px;
+  bottom: 0px;
+  left: 0px;
+  background: #343553;
+  width: 100%;
+  padding: 10px 5px 5px 5px;
+  color: #58CCC1;
+  border-radius: 25px 25px 0px 0px;
+
+  .itm {
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+
+
+  
+  }
+
+  .itm-txt {    
+    position: relative;
+    margin-top: -3px;
+    font-size: 12px;
+  }
+
+  .fa-shopping-basket{
+    position: relative;
+    .tb {
+      position: absolute;
+      font-size: 0.6em;
+      border: solid 1px white;
+      padding: 0.1em 0.2em;
+      background: white;
+      color: orangered;
+      border-radius: 25px;
+      font-weight: bold;
+      left: 27px;
+      top: -7px;
+    }
+  }
+}
+
+
+.drct{
+  width: 16px;
+}
+
+.prfl{
+  width: 19px;
+}

@@ -1,0 +1,22 @@
+
+.nv-bar{
+  z-index: 9;
+  position: fixed;
+  min-height: 55px;
+  max-height: 55px;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  color: white;
+  border-top: solid 1px #E9754E;
+  .itm{
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .itm-txt{
+    margin-top: -3px;
+    font-size: 12px;
+  }
+}

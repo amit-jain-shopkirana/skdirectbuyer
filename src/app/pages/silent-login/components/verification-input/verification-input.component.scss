@@ -1,0 +1,116 @@
+.bck {
+  background-color: white;
+  min-height: 100vh;
+  padding: 10px 10vw;
+}
+
+.lgn {
+  padding-top: 15vh;
+
+  .hrd {
+    color: #343553;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  .spp {
+    padding-top: 7px;
+    font-size: .9rem;
+    font-weight: bold;
+    color: rgb(112, 109, 109);
+  }
+
+  .bld {
+    font-weight: bold;
+  }
+
+  .tme {
+    margin-top: 10vh;
+    text-align: center;
+    color: #E9754E;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+}
+
+.inpt {
+  margin-top: 5vh;
+  width: 25%;
+  text-align: center;
+  display: inline-block;
+  padding: 5px 5px 5px 0px;
+
+  input {
+    width: 70%;
+    
+    border: solid 1px #343553;
+    border-radius: 5px;
+    background: none;
+    text-align: center;
+    font-size: 25px;
+    padding: 0px;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}
+
+
+.btn-nxt {
+  padding-top: 40px;
+
+  button {
+    background-color:  #343553;
+    color: #58CCC1;
+    font-size: .9rem;
+    font-weight: bold;
+    padding: 8px 14px;
+    border: solid 1px  #343553;
+    border-radius: 8px;
+  }
+
+  button:active,
+  button:focus {
+    border-radius: 8px;
+    outline: none;
+  }
+}
+
+
+.nt-b {
+  margin-top: 10vh;
+  font-size: .9rem;
+  font-weight: bold;
+
+  .rs {
+    color: #E9754E;
+    text-decoration: underline;
+  }
+}
+
+
+.mb {
+  position: relative;
+  padding-top: 20px;
+
+  .in-1 {
+    display: inline-block;
+    width: 100%;
+    border-radius: 5px;
+    border: solid 1px #343553;
+    height: 2.8rem;
+    padding-left: 45px;
+    background: white;
+  }
+
+
+  .inr-img {
+    position: absolute;
+    left: 12px;
+    width: 24px;
+    top: 29px;
+
+  }
+
+}

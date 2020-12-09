@@ -1,0 +1,40 @@
+.p-dialog .p-dialog-header {
+    padding: .2rem .2rem .2rem .8rem;
+}
+
+.p-dialog .p-dialog-content {
+    padding: .2rem;
+    margin-top: -1px;
+}
+
+.p-dialog .p-dialog-footer {
+    padding: .6rem .2rem;
+    margin-top: -1px;
+}
+
+
+#lyt-sde-bar .p-sidebar {
+    width: 60vw;
+}
+
+
+#alert-blk-ui .p-blockui{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: calc(var(--vh, 1vh) * 100);
+    z-index: 12;
+}
+
+
+
+.p-radiobutton .p-radiobutton-box.p-highlight {
+    border-color: #E9754E;
+    background: #E9754E;
+}
+
+
+.cntr {
+    flex: none;
+}

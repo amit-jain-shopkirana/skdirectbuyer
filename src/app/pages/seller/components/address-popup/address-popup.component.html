@@ -1,0 +1,218 @@
+<h3>Delivery Address</h3>
+<!-- <ul class="list-group" *ngIf="addAddress == false">
+      <li class="list-group-item"  *ngFor="let item of addressList">
+        <input type="radio" [(ngModel)]="radioSelected" name="list_name" value="{{item.LocationType}}" (change)="onItemChange($event,item)" /> 
+        {{item.AddressOne}}        
+      </li>
+    </ul>  -->
+
+
+<div class="container">
+    <form class="form modal-content animate" name="form" #userEditForm="ngForm">
+
+        <div class="form-body">
+            <span><b><u>Billing Address</u></b></span>
+
+            <div class="p-col-12">
+                <input type="radio" [(ngModel)]="data.radioSelected" name="addressStatus" value="Billing" /> <label
+                    for="otp" style="margin-left: 8px;"><b>IsPrimaryAddress</b></label>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="name"><b>Address 1: </b></label>
+                            <input type="text" class="form-control" (input)="inputValidator($event)"
+                                [(ngModel)]="data.BillingAddressOne" id="addressLineOne" name="addressLineOne"
+                                placeholder="Address Line One" maxlength="100" #addressLineOne="ngModel" required="1">
+                            <div *ngIf="isInvalid && !addressLineOne.valid && addressLineOne.errors.required">
+                                <code>Address 1 is required</code>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="name"><b>Address 2: </b></label>
+                            <input type="text" class="form-control" [(ngModel)]="data.BillingAddressTwo"
+                                (input)="inputValidator($event)" id="addressLineTwo" name="addressLineTwo"
+                                placeholder="Address Line Two" maxlength="100" #addressLineTwo="ngModel" required="1">
+                            <div *ngIf="isInvalid && !addressLineTwo.valid && addressLineTwo.errors.required">
+                                <code>Address 2 is required</code>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="name"><b>Address 3: </b></label>
+                            <input type="text" class="form-control" rows="3" [(ngModel)]="data.BillingAddressThree"
+                                (input)="inputValidator($event)" id="addressLineThree" name="addressLineThree"
+                                placeholder="Address Line Three" maxlength="100" #addressLineThree="ngModel"
+                                required="1">
+                            <div *ngIf="isInvalid && !addressLineThree.valid && addressLineThree.errors.required">
+                                <code>Address 3 is required</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="!hidePincode" style="margin-left: 15px;">
+                    <label for="pin"><b>Pincode</b></label>
+                    <input type="number" class="form-control h1" width="95%" placeholder="Enter Pincode" name="pinB"
+                        [(ngModel)]="data.BillingPincode" #pinB="ngModel" required="1">
+                    <button type="button" (click)="billingPincodeSearch(data.BillingPincode)">Search Pincode</button>
+                </div>
+
+                <div class="row" *ngIf="hidePincode" style="margin-left: -3px;">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="name"><b>State: </b></label>
+                            <div class=ui-g>
+                                <div class="ui-inputgroup">
+                                    <div class="form-control" style="padding-right: 194px;">
+                                        {{billPinList.StateName}}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="name"><b>City: </b></label>
+                            <div class=ui-g>
+                                <div class="ui-inputgroup">
+                                    <div class="form-control" style="padding-right: 194px;">
+                                        {{billPinList.CityName}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="name"><b>Pincode: </b></label>
+                            <div class=ui-g>
+                                <div class="ui-inputgroup">
+                                    <div class="form-control" style="padding-right: 194px;">
+                                        {{billPinList.Pincode}}
+                                    </div>
+                                    <div style="margin-left: -5px;
+                                  margin-top: 0px;">
+                                        <button type="button" (click)="reset()"
+                                            class="btn btn-outline-danger active">Retry Pincode</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <span style="margin-left: -15px;"><b><u>Shipping Address</u></b></span>
+
+                    <div class="p-grid" style="width:250px;margin-bottom:10px;margin-left:-16px; ">
+                        <div class="p-col-12">
+                            <input type="radio" [(ngModel)]="data.radioSelected" name="addressStatus"
+                                value="Shipping" /> <label for="otp"
+                                style="margin-left: 8px;"><b>IsPrimaryAddress</b></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"><b>Address 1: </b></label>
+                                <input type="text" class="form-control" (input)="inputValidator($event)"
+                                    [(ngModel)]="data.ShippingAddressOne" id="shippingaddressLineOne"
+                                    name="shippingaddressLineOne" placeholder="Address Line One" maxlength="100"
+                                    #shippingaddressLineOne="ngModel" required="1">
+                                <div
+                                    *ngIf="isInvalid && !shippingaddressLineOne.valid && shippingaddressLineOne.errors.required">
+                                    <code>Address 1 is required</code>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"><b>Address 2: </b></label>
+                                <input type="text" class="form-control" [(ngModel)]="data.ShippingAddressTwo"
+                                    (input)="inputValidator($event)" id="shippingaddressLineTwo"
+                                    name="shippingaddressLineTwo" placeholder="Address Line Two" maxlength="100"
+                                    #shippingaddressLineTwo="ngModel" required="1">
+                                <div
+                                    *ngIf="isInvalid && !shippingaddressLineTwo.valid && shippingaddressLineTwo.errors.required">
+                                    <code>Address 2 is required</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"><b>Address 3: </b></label>
+                                <input type="text" class="form-control" rows="3" [(ngModel)]="data.ShippingAddressThree"
+                                    (input)="inputValidator($event)" id="shippingaddressLineThree"
+                                    name="shippingaddressLineThree" placeholder="Address Line Three" maxlength="100"
+                                    #shippingaddressLineThree="ngModel" required="1">
+                                <div
+                                    *ngIf="isInvalid && !shippingaddressLineThree.valid && shippingaddressLineThree.errors.required">
+                                    <code>Address 3 is required</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="!shipPincode" style="margin-left: 15px;">
+                        <label for="pin"><b>Pincode</b></label>
+                        <input type="number" class="form-control h2" width="95%" placeholder="Enter Pincode" name="pinS"
+                            [(ngModel)]="data.ShipPincode" #pinS="ngModel" required="1">
+                        <button type="button" (click)="shippingPincodeSearch(data.ShipPincode)">Search Pincode</button>
+                    </div>
+                    <div class="row" *ngIf="shipPincode" style="margin-left: -3px;">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"><b>State: </b></label>
+                                <div class=ui-g>
+                                    <div class="ui-inputgroup">
+                                        <div class="form-control" style="padding-right: 194px;">
+                                            {{shipPinList.StateName}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"><b>City: </b></label>
+                                <div class=ui-g>
+                                    <div class="ui-inputgroup">
+                                        <div class="form-control" style="padding-right: 194px;">
+                                            {{shipPinList.CityName}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"><b>Pincode: </b></label>
+                                <div class=ui-g>
+                                    <div class="ui-inputgroup">
+                                        <div class="form-control" style="padding-right: 194px;">
+                                            {{shipPinList.Pincode}}
+                                        </div>
+                                        <div style="margin-left: -5px;
+                                      margin-top: 0px;">
+                                            <button type="button" (click)="resetShipPin()"
+                                                class="btn btn-outline-danger active">Retry Pincode</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" id="otpbtn" name="otpbtn"
+            (click)="submit($event,userEditForm,data,shipPinList,billPinList)">Add</button>
+
+    </form>
+</div>

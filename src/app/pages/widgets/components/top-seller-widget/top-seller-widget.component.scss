@@ -1,0 +1,155 @@
+.hdr {
+  color: #58CCC1;
+  font-size: 1rem;
+  font-weight: bold !important;
+}
+
+.bdyy {
+  font-size: .9rem;
+}
+
+.tp {
+  margin: 5px 0px 0px 0px;
+
+}
+
+
+.back {
+  float: right;
+  color: #E9754E !important;
+  padding-top: 30px;
+  cursor: pointer;
+}
+
+.tp .col-6 .brdr {
+  min-height: 13vh;
+  border: solid 1px #c7c0c0;
+  border-radius: 9px;
+  margin-bottom: 5px;
+  text-align: center;
+  height: 13vh;
+  position: relative;
+  margin: 0.5em;
+
+  .bdy {
+    padding: 10px;
+  }
+
+  .hdr-b {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 13px;
+  }
+
+  .str {
+    position: absolute;
+    right: 6px;
+    bottom: 0px;
+  }
+}
+
+.rating-list {
+  li {
+    font-size: 20px;
+    // float: right;
+    color: #ddd;
+
+    // padding: 10px 5px;
+    &:hover {
+      color: #E9754E;
+
+      ~ {
+        li {
+          color: #E9754E;
+        }
+      }
+    }
+  }
+
+  li.selected {
+    color: #E9754E;
+  }
+
+  display: inline-block;
+  list-style: none;
+}
+
+.disabled {
+  pointer-events: none; //This makes it not clickable
+  opacity: 0.6; //This grays it out to look disabled
+}
+
+
+.btnnn {
+  font-size: .8rem;
+  float: right;
+  background: #343553;
+  color: #58CCC1 !important;
+  padding: .3em .7rem;
+  border: solid 1px #343553;
+  border-radius: 22px;
+}
+
+
+
+
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  margin-left: -.3em;
+
+  .card-1 {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+
+
+.scrolling-wrapper {
+
+  margin-bottom: 20px;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+.tp .brdr {
+  min-height: 15vh;
+  border: solid 1px rgb(199, 192, 192);
+  border-radius: 9px;
+  margin-bottom: 5px;
+  text-align: center;
+  height: 15vh;
+  position: relative;
+  margin: 0.5em;
+
+  .wdt {
+    min-width: 24vw;
+    width: 24vw;
+    max-width: 24vw;
+  }
+}
+
+
+:host ::ng-deep .imgg {
+  display: inline;
+  width: 90%;
+  max-height: 13vh;
+}
+
+.slr-nm{
+  text-align: center;
+  font-size: .8rem;
+  font-weight: bold;
+}

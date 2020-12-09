@@ -1,0 +1,2 @@
+<img #image (error)="imageNotFound()" [hidden]="!isImageFound" [src]="imageFullPath" class="imgg">
+<img class="imgg" *ngIf="!isImageFound" [src]="imageType">

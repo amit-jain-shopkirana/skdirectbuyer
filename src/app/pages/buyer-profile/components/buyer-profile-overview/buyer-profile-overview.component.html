@@ -1,0 +1,127 @@
+<div *ngIf="!isEditiongOtherInfo && !isEditAddress">
+    <app-top-navigation-wrapper>
+        <button class="tp-nav-btn" id="buyeroverViewProfileHeaderBtn" (click)="goToHome()"><i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp;
+            Back</button>
+    </app-top-navigation-wrapper>
+
+    <div class="sctn" *ngIf="buyerProfile">
+        <div class="edt"><a (click)="editOtherInfo()">edit</a></div>
+        <div class="row">
+            <!-- <div id="img-sctn" class="col-3">
+                <div class="pe-img">
+                    <div class="p-img" *ngIf="buyerProfile.ImagePath">
+                        <img [src]="baseApiUrl + buyerProfile.ImagePath" class="rounded">
+                    </div>
+                    <div class="p-img-nt" *ngIf="!buyerProfile.ImagePath">
+                        <a><i class="fa fa-user-circle fa-4x" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div> -->
+            <div id="pe-othr-info" class="col-9">
+                <!-- <div class="sn">{{buyerProfile.ShopName? buyerProfile.ShopName : 'Shop Name: N/A'}}</div> -->
+                <div class="nme">{{buyerProfile.FirstName? buyerProfile.FirstName : 'Name: N/A'}}</div>
+                <div class="s-nme">{{buyerProfile.Email? buyerProfile.Email : 'Email: N/A'}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sctn pe-mr-10">
+        <app-sk-accordion [showContent]="showAddress" (onToggle)="onToggleAddress($event)">
+            <span header class="add1">
+                Address <a class="ad-nw" ><span (click)="addNewAddress()"> 
+                    <!-- <button type="button" class="chk-btn" (click)="addNewAddress()"> -->
+                        <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+                        <!-- Add new -->
+                    <!-- </button> -->
+                    </span></a>
+
+            </span>
+
+            <div content>
+                <div class="addr" *ngIf="userLocationList">
+                    <!-- // -->
+                    <div class="col-4" *ngFor="let location Of userLocationList">
+
+                        <div *ngIf="!location.IsDelete" >
+                            <div [ngClass]="{'img-cntr': true, 'cnt': true, 'deflt': location.IsPrimaryAddress}">
+        
+                                <div class="tl-grd aa" *ngIf="!location.IsDelete">
+                                    <i *ngIf="location.IsPrimaryAddress" class="fa fa-check-circle fa-lg deflt-i"
+                                        aria-hidden="true"></i>
+                                    <a class="lnk" (click)="op.toggle($event)" #appender>
+                                        <i class="fa fa-ellipsis-v fa-lg" aria-hidden="true"></i>
+                                    </a>
+                                    <p-overlayPanel #op [dismissable]="true" [appendTo]="appender" [focusOnShow]="true"
+                                        [showCloseIcon]="false">
+                                        <ng-template pTemplate>
+                                            <p-menu [model]="getMenuItemsForItem(location)"></p-menu>
+        
+                                        </ng-template>
+                                    </p-overlayPanel>
+        
+                                </div>
+                                <div class="nme-a">{{location.AddressOne}}</div>
+                                <div class="nme-b">{{location.AddressTwo}}</div>
+                                <div class="nme-b">{{location.AddressThree}}</div>
+                                <div class="nme-b">
+                                    {{location.City}}
+                                    {{location.Pincode? ' - ' + location.Pincode: ''}}
+                                </div>
+                                <div class="nme-b">{{location.State}}</div>       
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- //// -->
+                    <!-- <div class="addr" *ngFor="let location of userLocationList">
+                        <div class="skp"><a class="loc" (click)="editLocation(location)"><i class="fa fa-edit e1"></i></a></div>
+                        <div class="skp"><a (click)="deleteLocation(location)"><i class="fa fa-trash t1" aria-hidden="true"></i></a></div>
+                        <div class="nme-a">{{location.AddressOne}}</div>
+                        <div class="nme-b">{{location.AddressTwo}}</div>
+                        <div class="nme-b">{{location.AddressThree}}</div>
+                        <div class="nme-b">
+                            {{location.City}}
+                            {{location.Pincode? ' - ' + location.Pincode: ''}}
+                        </div>
+                        <div class="nme-b">{{location.State}}</div>
+
+                    </div> -->
+                </div>
+                <!-- <div class="addr" *ngIf="userLocationList">
+                    <div class="addr" *ngFor="let location of userLocationList">
+
+                        <div class="skp"><a class="loc" (click)="editLocation(location)"><i class="fa fa-edit e1"></i></a></div>
+                        <div class="skp"><a  (click)="deleteLoc(location)"><i class="fa fa-trash t1" aria-hidden="true"></i></a></div>
+                        <div class="nme-a">{{location.AddressOne}}</div>
+                        <div class="nme-b">{{location.AddressTwo}}</div>
+                        <div class="nme-b">{{location.AddressThree}}</div>
+                        <div class="nme-b">
+                            {{location.City}}
+                            {{location.Pincode? ' - ' + location.Pincode: ''}}
+                        </div>
+                        <div class="nme-b">{{location.State}}</div>
+
+                    </div>
+                </div> -->
+            </div>
+        </app-sk-accordion>
+    </div>
+</div>
+
+
+<div *ngIf="isEditiongOtherInfo">
+    <app-buyer-profile (onSkip)="onSkipEditOtherInfo()"></app-buyer-profile>
+</div>
+
+<div *ngIf="isEditAddress">
+    <app-manage-address [location]="selectedLocation" (onSaveAddress)="onSaveAddress($event, true)"
+        (onClosePopup)="onSaveAddress($event,false)"></app-manage-address>
+</div>
+
+<!-- <p-confirmDialog #cd header="Confirm" [style]="{width: '90vw'}" [closable]="false">
+    <p-footer>
+        <button type="button" class="sk-btn sk-btn-secondary" (click)="cd.reject()">No</button>
+        <button type="button" class="sk-btn sk-btn-primary" (click)="cd.accept()">Yes</button>
+    </p-footer>
+</p-confirmDialog> -->
