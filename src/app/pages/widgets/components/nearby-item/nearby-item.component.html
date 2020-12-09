@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row tp">
+        <div class="col-8">
+            <span class="hdr">Nearby Items</span>
+        </div>
+        <div class="col-4">
+            <a class="btnnn" (click)="viewAllItems()">
+                View More 
+            </a>
+        </div>
+    </div>
+    <!-- <div class="row tp">
+        <div class="col-6" *ngFor="let category Of topNearItems">
+            <div class="brdr">
+                <div>
+                    <img [src]="baseUrl + category.ImagePath" class="imgg">
+                </div>
+                <div class="txt-abs">
+                    <span style="color: #E9754E;"><b>{{category.ProductName}}</b></span><br />
+                    <span style="color: #E9754E;"><b>MRP : <i class="fa fa-inr"
+                                aria-hidden="true"></i>{{category.Mrp  | number :'1.0-2'}}/-</b></span><br />
+                    <span><b>{{category.SellerName}}</b></span>
+                </div>
+
+            </div>
+        </div>
+    </div> -->
+</div>
+
+
+<div class="scrolling-wrapper tp" *ngIf="topNearItems && topNearItems.length > 0">
+    <div class="card-1" *ngFor="let category Of topNearItems">
+        <div class="brdr" (click)="productDetail(category)">
+            <div class="wdt">
+                <div>
+                    <app-image-not-found [imageFullPath]="baseUrl + category.ImagePath"></app-image-not-found>
+                    <!-- <img #image (error)="imageNotFound(category)" [hidden]="category.notFound" [src]="baseUrl + category.ImagePath" class="imgg">
+                    <img class="imgg" *ngIf="category.notFound" src="assets/images/notfound.png"> -->
+                </div>
+                <div class="txt-abs">
+                    <span class="pr-nm">{{category.ProductName}}</span><br />
+                    <span class="pr-prc">MRP : <i class="fa fa-inr"
+                                aria-hidden="true"></i>{{category.Mrp  | number :'1.0-2'}}/-</span><br />
+                    <!-- <span><b>{{category.SellerName}}</b></span> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!topNearItems || !(topNearItems.length > 0)">
+    <app-no-item-found body="For your location there is no seller active, please check in future."
+        header="No Item Found"></app-no-item-found>
+</div>
+
+
+

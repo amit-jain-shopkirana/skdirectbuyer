@@ -1,0 +1,28 @@
+<app-sk-dialog>
+    <div topNavigation>
+        <!-- (click)="closePopup()" -->
+        <button class="tp-nav-btn" (click)="back()">
+            <span class="fntt"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back</span>
+        </button>
+    </div>
+    <div body >
+        <div class="ar-bd" #target (scroll)="onWindowScroll($event)">
+            <div *ngIf="currentMessages && currentMessages.length > 0">
+                <div *ngFor="let msg of currentMessages" class="msg-cntr">
+                    <div [ngClass]="{'msg': true, 'lft': myUserId != msg.senderId, 'rght': myUserId == msg.senderId}">
+                        {{msg.content}}
+                        <!-- {{msg.senderName}}  -->
+                    </div>
+                    <div [ngClass]="{'tme': true, 'lft': myUserId != msg.senderId, 'rght': myUserId == msg.senderId}">
+                        {{msg.timestamp.toDate().toLocaleString()}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div bottomNavigation>
+        <input class="inp" #sendInput placeholder="write here...." [(ngModel)]="message">
+        <button class="n-bt" (click)="sendMessage()"><i class="fa fa-paper-plane"
+                aria-hidden="true"></i>&nbsp;Send</button>
+    </div>
+</app-sk-dialog>

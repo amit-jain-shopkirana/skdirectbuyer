@@ -1,0 +1,71 @@
+<app-top-navigation-wrapper>
+    <div class="row">
+        <div class="col-10">
+            <button class="tp-nav-btn" id="categoryHeaderBtn" (click)="appRoute()"><i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp;
+                Category</button>
+        </div>
+        <div class="col-2 text-right">
+           <div class="txtt" (click)="display = true"><i class="fa fa-filter fa-lg" aria-hidden="true"></i></div> 
+        </div>
+      </div>
+  </app-top-navigation-wrapper>
+
+  <p-sidebar [(visible)]="display" [showCloseIcon]="false" position="bottom" styleClass="p-sidebar-sm" appendTo="body"
+[style]="{'height': '17rem', 'width': '362px'}">
+  <div class="card">
+    <h5 class="fl">Filter</h5>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+              <label class="col-12"> <b>Category :</b></label>
+              <p-autoComplete id="ap-ac1" [suggestions]="categoryList" field="CategoryName"
+              (onSelect)="onSelectcategory($event)" [(ngModel)]="CateogryName"
+              placeholder="Search Category Name" 
+              (completeMethod)="getCategorylistforfilter($event)" [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}"
+              name="CategoryName">
+            </p-autoComplete>
+            </div>
+          </div>     
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label> </label>
+          <div>
+            <button type="button" id="catresetBtn" class="btn btn-outline-dark active btn1"
+              (click)="ngOnInit();">Reset</button>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-8 text-right">
+        <div class="form-group">
+          <label> </label>
+          <div class="text=right">
+            
+            <button type="button" id="catSearchBtn" class="btn btn-outline-primary active btn2" value="Search" (click)="getCategory(searchData)">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr style="border: width 2px;">
+
+  </div>
+</p-sidebar>
+
+<div class="search-results" infinite-scroll [infiniteScrollContainer]="'.cntr'" [fromRoot]="true"
+  [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance"
+  [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
+<div class="mb">
+    <div class="row itm" *ngFor="let cat of categoryList" (click)="subCategory(cat)">
+        <div class="col-4 img-brdr">
+            <img [src]="baseUrl + cat.ImagePath">
+        </div>
+        <div class="col-8 lft-cntr">
+            <p><span class="prdt">{{cat.Name}}</span></p>
+        </div>
+    </div>
+</div>
+</div>

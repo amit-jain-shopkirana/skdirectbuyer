@@ -1,0 +1,64 @@
+.rating-list {
+    li {
+    font-size: 20px;
+        float: right;
+        color: #ddd;
+        padding: 10px 5px;
+        &:hover {
+            color: #ffd700;
+            ~ {
+                li {
+                    color: #ffd700;
+                }
+            }
+        }
+    }
+    li.selected {
+        color: #ffd700;
+    }
+    display: inline-block;
+    list-style: none;
+}
+
+.productThumbBox{
+    text-align: center;
+    margin: 5px 0px;
+    display: inline-block;
+    width: 100%;
+    border: 0;
+    -webkit-box-shadow: 0 1px 5px 0 rgba(0,0,0,0.16), 0 2px 2px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 1px 5px 0 #a8a8af, 0 2px 2px 0 #7b7b7fa8;
+    padding: 11px;
+    position: relative;
+    background: white;
+    border-radius: 56px;
+  }
+  .productThumbBox .ritFixBtn{    
+    position: relative;
+    bottom: auto;
+    right: auto;
+    padding: 2px 10px;
+    font-size: 12px;
+    margin-top: 15px;
+  }
+  .productThumbBox h5.sellerName{
+    color: #0f202a;
+    font-weight: 600;
+    font-size: 12px;
+    height: 30px;
+    width: 50%;
+    overflow: hidden;
+  }
+  .btn-brdr
+{
+  text-align: center;
+  padding: 8px 0px !important;
+  border-bottom: solid 1px gray;
+  border-top: solid 1px gray;
+  border-bottom-left-radius: 26px;
+  border-top-left-radius: 26px;
+  border-bottom-right-radius: 26px;
+  border-top-right-radius: 26px;
+  border-left: solid 1px gray;
+  border-right: solid 1px gray;
+}

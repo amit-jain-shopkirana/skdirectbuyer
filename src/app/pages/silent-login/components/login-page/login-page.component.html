@@ -1,0 +1,347 @@
+
+    <button (click)="loginpopup()" *ngIf="!login">Login</button>
+
+    <div *ngIf="login">
+      
+      <form class="form modal-content animate" name="form" #userEditForm="ngForm"  >
+        <div class="imgcontainer">
+          <!-- <span  class="close" title="Close Modal" (click)="cancel()">&times;</span> -->
+          <!-- <img src="assets/face.png" alt="Avatar" class="avatar"> -->
+        </div>
+    
+        <div class="container" *ngIf="mobileExist">
+          <label for="uname"><b>Username</b></label>
+          <input type="tel" class="form-control" placeholder="Enter Username" name="uname" maxlength="10" minlength="10" (keypress)="keyPress($event)" [(ngModel)]="mobile" #uname="ngModel" required="1">
+          <div *ngIf="isInvalid && !uname.valid && uname.errors.required">                   
+            <code>UserName is required</code>
+        </div>
+          <button type="button" id="nbtn" name="nbtn" (click)="nextOtp(userEditForm,mobile)">Next</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+        </div>
+        <div class="container" *ngIf="userexist">  
+            <input type="radio" [(ngModel)]="radioSelected" name="list_name" value="Password"  #list_name="ngModel" required="1"/> <label for="otp" style="margin-left: 8px;"><b>Password</b></label>
+    
+            <input type="radio" [(ngModel)]="radioSelected" name="list_name" value="OTP" style="margin-left: 30px;" #list_name="ngModel" required="1"/> <label for="otp" style="margin-left: 8px;"><b>OTP</b></label> <br/>
+            
+            <div *ngIf="isInvalid && !list_name.valid && list_name.errors.required">                   
+              <code>One Option is required</code>
+          </div>
+      
+            <button type="button" id="otpbtn" name="otpbtn" (click)="onSelect(userEditForm,radioSelected)">Next</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+          </div>
+          <div class="container" *ngIf="passwordShow">  
+            <label for="pwd"><b>Password</b></label>
+            <input type="password" class="form-control" placeholder="Enter Password" name="pwd" [(ngModel)]="data.pass" #pwd="ngModel" required="1">
+            <div *ngIf="isInvalid && !pwd.valid && pwd.errors.required">                   
+                <code>Password is required</code>
+            </div>
+            <button type="button" id="otpbtn" name="otpbtn" (click)="verifyPassword(userEditForm,data.pass)">Login</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+          </div>
+        <div class="container" *ngIf="otp">  
+            <label for="otp"><b>OTP</b></label>
+            <input type="number" class="form-control" placeholder="Enter Otp" name="otp" (keypress)="keyPress($event)" [(ngModel)]="data.otp" #otp="ngModel" required="1">
+            <div *ngIf="isInvalid && !otp.valid && otp.errors.required">                   
+                <code>OTP is required</code>
+            </div>
+              
+            <button type="button" id="otpbtn" name="otpbtn" (click)="silentLogin(userEditForm,data)">Login</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+          </div>
+          <div class="container" *ngIf="infoShow">  
+            <label for="fname"><b>First Name</b></label>
+            <input type="text" class="form-control" placeholder="Enter First Name" name="fname" [(ngModel)]="data.FirstName" #fname="ngModel" required="1">
+            <div *ngIf="isInvalid && !fname.valid && fname.errors.required">                   
+                <code>First Name is required</code>
+            </div>
+              
+            <label for="mname"><b>Middle Name</b></label>
+            <input type="text" class="form-control" placeholder="Enter Last Name" name="mname" [(ngModel)]="data.MiddleName"  #mname="ngModel" required="1">
+            <div *ngIf="isInvalid && !mname.valid && mname.errors.required">                   
+                <code>Middle Name is required</code>
+            </div>
+              
+            <label for="lname"><b>Last Name</b></label>
+            <input type="text" class="form-control" placeholder="Enter Last Name" name="lname" [(ngModel)]="data.LastName" #lname="ngModel" required="1">
+            <div *ngIf="isInvalid && !lname.valid && lname.errors.required">                   
+                <code>Last Name is required</code>
+            </div>
+              
+            <label for="email"><b>Email</b></label>
+            <input type="email" class="form-control" placeholder="Enter Email" name="email" [(ngModel)]="data.Email" #email="ngModel" required="1">
+            <div *ngIf="isInvalid && !email.valid && email.errors.required">                   
+                <code>Email is required</code>
+            </div>
+            <div *ngIf="!hidePincode">
+                <label for="pin"><b>Pincode</b></label>
+                <input type="number" class="form-control" placeholder="Enter Pincode" name="pin" [(ngModel)]="myControl" #pin="ngModel" required="1">
+                <button type="button" (click)="pincodeSearch(myControl)"
+                >Search Pincode</button><!--class="cancelbtn"-->
+            </div>
+            <div class="row" *ngIf="hidePincode" style="margin-left: -15px;">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="name"><b>State: </b></label>
+                        <div class=ui-g >
+                          <div class="ui-inputgroup">
+                              <div class="form-control"
+                                  style="padding-right: 252px;">
+                                  {{pinList.StateName}}
+                              </div>
+                          </div>
+                  </div>                       
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="name"><b>City: </b></label>
+                        <div class=ui-g >
+                          <div class="ui-inputgroup">
+                              <div class="form-control"
+                                  style="padding-right: 252px;">
+                                  {{pinList.CityName}}
+                              </div>                                                       
+                          </div>
+                  </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                      <label for="name"><b>Pincode: </b></label>
+                      <div class=ui-g >
+                            <div class="ui-inputgroup">
+                                <div class="form-control"
+                                    style="padding-right: 252px;">
+                                    {{pinList.Pincode}}
+                                </div>
+                                <div style="margin-left: -5px;
+                                margin-top: 0px;">
+                                    <button type="button" (click)="reset()"
+                                    >Retry Pincode</button><!--class="btn btn-outline-danger active"-->
+                                </div>
+                            </div>
+                    </div>
+                  </div>
+              </div>
+               </div>
+          
+    
+            <button type="button" id="otpbtn" name="otpbtn" (click)="nextInfo(userEditForm,data,pinList)">Next</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+          </div>
+          
+          <div class="container" *ngIf="addressShow">  
+            <div class="form-body">
+                <span ><b><u>Billing Address</u></b></span>
+    
+                <div class="p-col-12">
+                    <input type="radio" [(ngModel)]="data.radioSelected" name="addressStatus" value="Billing"  /> <label for="otp" style="margin-left: 8px;"><b>IsPrimaryAddress</b></label>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"><b>Address 1: </b></label>
+                                <input type="text" class="form-control" (input)="inputValidator($event)" [(ngModel)]="data.BillingAddressOne" id="addressLineOne" name="addressLineOne" placeholder="Address Line One" maxlength="100" #addressLineOne="ngModel" required="1">
+                                <div *ngIf="isInvalid && !addressLineOne.valid && addressLineOne.errors.required">                   
+                                    <code>Address 1 is required</code>
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"><b>Address 2: </b></label>
+                                <input type="text" class="form-control"  [(ngModel)]="data.BillingAddressTwo" (input)="inputValidator($event)" id="addressLineTwo" name="addressLineTwo" placeholder="Address Line Two" maxlength="100" #addressLineTwo="ngModel" required="1">
+                                <div *ngIf="isInvalid && !addressLineTwo.valid && addressLineTwo.errors.required">                   
+                                    <code>Address 2 is required</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                              <label for="name"><b>Address 3: </b></label>
+                              <input type="text" class="form-control" rows="3" [(ngModel)]="data.BillingAddressThree" (input)="inputValidator($event)" id="addressLineThree" name="addressLineThree" placeholder="Address Line Three" maxlength="100" #addressLineThree="ngModel" required="1">
+                              <div *ngIf="isInvalid && !addressLineThree.valid && addressLineThree.errors.required">                   
+                                  <code>Address 3 is required</code>
+                              </div>
+                          </div>
+                      </div>
+                       </div>
+                       <div *ngIf="!hidePincode" style="margin-left: 15px;">
+                        <label for="pin"><b>Pincode</b></label>
+                        <input type="number" class="form-control h1" width="95%" placeholder="Enter Pincode" name="pinB" [(ngModel)]="data.BillingPincode" #pinB="ngModel" required="1">
+                        <button type="button" (click)="billingPincodeSearch(data.BillingPincode)"
+                        >Search Pincode</button><!--class="cancelbtn"-->
+                    </div>
+                      
+                    <div class="row" *ngIf="hidePincode" style="margin-left: -3px;">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"><b>State: </b></label>
+                                <div class=ui-g >
+                                  <div class="ui-inputgroup">
+                                      <div class="form-control"
+                                          style="padding-right: 194px;">
+                                          {{billPinList.StateName}}
+                                      </div>
+                                  </div>
+                          </div>
+                                <!-- <input type="text" class="form-control" (input)="inputValidator($event)" [(ngModel)]="state" id="state" name="state" placeholder="State" disabled> -->
+                               
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"><b>City: </b></label>
+                                <div class=ui-g >
+                                  <div class="ui-inputgroup">
+                                      <div class="form-control"
+                                          style="padding-right: 194px;">
+                                          {{billPinList.CityName}}
+                                      </div>                                                       
+                                  </div>
+                          </div>
+                                <!-- <input type="text" class="form-control"  [(ngModel)]="city" (input)="inputValidator($event)" id="city" name="city" placeholder="City" disabled> -->
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                              <label for="name"><b>Pincode: </b></label>
+                              <div class=ui-g >
+                                    <div class="ui-inputgroup">
+                                        <div class="form-control"
+                                            style="padding-right: 194px;">
+                                            {{billPinList.Pincode}}
+                                        </div>
+                                        <div style="margin-left: -5px;
+                                        margin-top: 0px;">
+                                            <button type="button" (click)="reset()"
+                                            class="btn btn-outline-danger active">Retry Pincode</button>
+                                        </div>
+                                    </div>
+                            </div>
+                          </div>
+                      </div>
+                       </div>
+                       
+                          <div class="row">
+                            <span style="margin-left: -15px;"><b><u>Shipping Address</u></b></span>
+    
+                          <div class="p-grid" style="width:250px;margin-bottom:10px;margin-left:-16px; ">
+                            <div class="p-col-12">
+                                <input type="radio" [(ngModel)]="data.radioSelected" name="addressStatus" value="Shipping"  /> <label for="otp" style="margin-left: 8px;"><b>IsPrimaryAddress</b></label>
+                            </div>
+                            </div> 
+                        <div class="row">
+                          <div class="col-md-4">
+                              <div class="form-group">
+                                  <label for="name"><b>Address 1: </b></label>
+                                  <input type="text" class="form-control" (input)="inputValidator($event)" [(ngModel)]="data.ShippingAddressOne" id="shippingaddressLineOne" name="shippingaddressLineOne" placeholder="Address Line One" maxlength="100" #shippingaddressLineOne="ngModel" required="1">
+                                  <div *ngIf="isInvalid && !shippingaddressLineOne.valid && shippingaddressLineOne.errors.required">                   
+                                      <code>Address 1 is required</code>
+                                  </div>
+                                 
+                              </div>
+                          </div>
+                          <div class="col-md-4">
+                              <div class="form-group">
+                                  <label for="name"><b>Address 2: </b></label>
+                                  <input type="text" class="form-control"  [(ngModel)]="data.ShippingAddressTwo" (input)="inputValidator($event)" id="shippingaddressLineTwo" name="shippingaddressLineTwo" placeholder="Address Line Two" maxlength="100" #shippingaddressLineTwo="ngModel" required="1">
+                                  <div *ngIf="isInvalid && !shippingaddressLineTwo.valid && shippingaddressLineTwo.errors.required">                   
+                                      <code>Address 2 is required</code>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name"><b>Address 3: </b></label>
+                                <input type="text" class="form-control" rows="3" [(ngModel)]="data.ShippingAddressThree" (input)="inputValidator($event)" id="shippingaddressLineThree" name="shippingaddressLineThree" placeholder="Address Line Three" maxlength="100" #shippingaddressLineThree="ngModel" required="1">
+                                <div *ngIf="isInvalid && !shippingaddressLineThree.valid && shippingaddressLineThree.errors.required">                   
+                                    <code>Address 3 is required</code>
+                                </div>
+                            </div>
+                        </div>
+                         </div>
+                         <div *ngIf="!shipPincode" style="margin-left: 15px;">
+                            <label for="pin"><b>Pincode</b></label>
+                            <input type="number" class="form-control h1" placeholder="Enter Pincode" name="pinS" [(ngModel)]="data.ShipPincode" #pinS="ngModel" required="1">
+                            <button type="button" (click)="shippingPincodeSearch(data.ShipPincode)"
+                            >Search Pincode</button><!--class="cancelbtn"-->
+                        </div>
+                        <div class="row" *ngIf="shipPincode" style="margin-left: -3px;">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="name"><b>State: </b></label>
+                                    <div class=ui-g >
+                                      <div class="ui-inputgroup">
+                                          <div class="form-control"
+                                              style="padding-right: 194px;">
+                                              {{shipPinList.StateName}}
+                                          </div>
+                                      </div>
+                              </div>
+                                    <!-- <input type="text" class="form-control" (input)="inputValidator($event)" [(ngModel)]="state" id="state" name="state" placeholder="State" disabled> -->
+                                   
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="name"><b>City: </b></label>
+                                    <div class=ui-g >
+                                      <div class="ui-inputgroup">
+                                          <div class="form-control"
+                                              style="padding-right: 194px;">
+                                              {{shipPinList.CityName}}
+                                          </div>                                                       
+                                      </div>
+                              </div>
+                                    <!-- <input type="text" class="form-control"  [(ngModel)]="city" (input)="inputValidator($event)" id="city" name="city" placeholder="City" disabled> -->
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                  <label for="name"><b>Pincode: </b></label>
+                                  <div class=ui-g >
+                                        <div class="ui-inputgroup">
+                                            <div class="form-control"
+                                                style="padding-right: 194px;">
+                                                {{shipPinList.Pincode}}
+                                            </div>
+                                            <div style="margin-left: -5px;
+                                            margin-top: 0px;">
+                                                <button type="button" (click)="resetShipPin()"
+                                                class="btn btn-outline-danger active">Retry Pincode</button>
+                                            </div>
+                                        </div>
+                                </div>
+                              </div>
+                          </div>
+                           </div>
+            </div>
+            </div>
+            </div>
+            <button type="button" id="otpbtn" name="otpbtn" (click)="submit(userEditForm,data,shipPinList,billPinList)">Next</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+          </div>
+    
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button"   (click)="cancel()">Cancel</button><!--class="cancelbtn"-->
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+    </div>
+    

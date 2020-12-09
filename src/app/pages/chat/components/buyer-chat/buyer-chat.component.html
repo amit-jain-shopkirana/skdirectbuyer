@@ -1,0 +1,34 @@
+<app-sk-dialog *ngIf="!showMessages && !showSearchSeller">
+    <div topNavigation>
+        <!-- (click)="closePopup()" -->
+        <button class="tp-nav-btn" (click)="navigateToDefaultUrl()">
+            <span class="fntt"> <i class="fa fa-arrow-left" aria-hidden="true"  ></i> Back</span>
+        </button>
+        <!-- <p-autoComplete class="aa" [(ngModel)]="selectedUserToAdd" field="name" [suggestions]="selectedOtherUsers"
+            (completeMethod)="onSearchUser($event)" (onSelect)="onSelectUser($event)"></p-autoComplete> -->
+
+        <a class="srch" (click)="showSearchSeller = true" ><i class="pi pi-search" style="font-size: 1.2rem; font-weight: bold;"></i></a>
+    </div>
+    <div body>
+        <div *ngIf="!showMessages && loggedInUser && loggedInUser.conversations">
+            <div class="usr" *ngFor="let user of loggedInUser.conversations" (click)="onSelectUser(user)">
+                {{user.name}}
+                <div class="cnt" *ngIf="user.count">{{user.count}}</div>
+            </div>
+        </div>
+
+    </div>
+    <div bottomNavigation>
+
+    </div>
+</app-sk-dialog>
+
+
+<div *ngIf="showMessages">
+    <app-send-message [chatId]="selectedChatId" [user]="selectedUser" (onBack)="onCloseShowMessages()">
+    </app-send-message>
+</div>
+
+<div *ngIf="showSearchSeller">
+    <app-search-seller (onBack)="showSearchSeller = false"  (onSelectUser)="onSelectUserFromSearch($event)" ></app-search-seller>
+</div>

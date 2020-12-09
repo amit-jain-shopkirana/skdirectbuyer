@@ -1,0 +1,26 @@
+<div class="nv-bar">
+    <div (click)="openHome()" class="itm">
+       <img class="drct" src="assets/images/tab_bar/inactive/direct_tab.svg">
+        <div class="itm-txt">Home</div>
+    </div>
+    <div (click)="openProfile()" class="itm">
+        <img class="prfl" src="assets/images/tab_bar/inactive/profile_tab.svg">
+        <div class="itm-txt">Profle</div>
+    </div>
+
+    <div (click)="openTrade()" class="itm">
+        <i class="fa fa-cart-arrow-down fa-lg" aria-hidden="true"></i>
+        <div class="itm-txt">My Order</div>
+    </div>
+    <div (click)="openCart()" class="itm">
+
+        <i class="fa fa-shopping-basket fa-lg" aria-hidden="true">
+            <div class="tb">
+                {{(cart && cart.Cart && cart.Cart.length >0) ? cart.Cart.length : 0 }}
+            </div>
+        </i>
+        <div class="itm-txt">Basket
+            
+        </div>
+    </div>
+</div>

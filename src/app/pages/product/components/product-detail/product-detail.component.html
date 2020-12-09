@@ -1,0 +1,135 @@
+<app-sk-dialog *ngIf="selectedProduct">
+    <div body class="bck">        
+        <div class="arrw">
+            <a class="crl pull-left" (click)="back()">
+                <i class="pi pi-arrow-left"></i>
+            </a>
+            <a class="crl pull-right" (click)="openCheckout()">
+                <img style="width: 20px;" src="assets/images/tab_bar/inactive/shopping-bag_tab.svg">
+            </a>
+            <a class="crl pull-right">
+                <i class="pi pi-share-alt"></i>
+            </a>
+            <a class="crl pull-right">
+                <i class="pi pi-heart"></i>
+            </a>
+        </div>
+        <div *ngIf="appHomeWidgetDc">
+            <app-carousel-widget [timeInSec]="2" [widget]="appHomeWidgetDc"></app-carousel-widget>
+        </div>
+
+        <div class="vrt-1" *ngIf="productDetail && productDetail.VariationList && productDetail.VariationList.length > 0">
+  
+            <a class="crl-btn" (click)="openVariantWidnow()">Variants</a>
+        </div>
+    
+
+
+        <div class="bddy">
+            <div class="hd">
+                {{selectedProduct.ProductName}}
+                <span class="vrt-2" *ngFor="let variant of selectedProduct.ProductVariantAttributeDC">
+                    <span>{{variant.AttributeName}}: </span>
+                    <span>{{ variant.AttributeValue}} </span>
+                </span>
+            </div>
+            <div class="prc">
+                <span class="spr"><i class="fa fa-inr" aria-hidden="true"></i> {{selectedProduct.SellingPrice}}</span>
+                <span class="mrp"><del><i class="fa fa-inr" aria-hidden="true"></i> {{selectedProduct.Mrp}}</del></span>
+                <span class="prcnt">
+                    ({{(selectedProduct.Mrp - selectedProduct.SellingPrice)/selectedProduct.Mrp *100 | number:'1.0-0'}}%
+                    Off)
+                </span>
+            </div>
+            <div class="tx">
+                inclusive of all taxes
+            </div>
+
+        </div>
+
+        <!-- <div class="ftr" *ngIf="productDetail && productDetail.VariationList && productDetail.VariationList.length > 0">
+            <div class="hdr">Selected Variant</div>
+            <div class="vrt" (click)="openVariantWidnow()">
+
+                <div *ngFor="let variant of selectedProduct.ProductVariantAttributeDC">
+                    <span>{{variant.AttributeName}}: </span>
+                    <span>{{ variant.AttributeValue}}</span>
+                </div>
+
+            </div>
+        </div> -->
+        <div class="ftr">
+            <div class="hdr">Features & details</div>
+            <div class="ln" *ngFor="let attr of productDetail.ProductVariantAttributeDC">
+                <span class="hd">
+                    {{attr.AttributeName}}
+                </span>
+                <span class="bd">
+                    {{attr.AttributeValue}}        
+                </span>
+            </div>
+            
+        </div>
+    </div>
+    <div bottomNavigation>
+        <button class="btnnp" id="addtoCart2"
+            *ngIf="!selectedProduct.Quantity && ((selectedProduct.IsStockRequired == true && selectedProduct.Stock > 0) || (selectedProduct.IsStockRequired == false))"
+            (click)="updateProductQuantity(1,selectedProduct.ProductVariantAttributeDC)">
+            ADD TO CART &nbsp;
+            <img style="width: 15px;" src="assets/images/tab_bar/inactive/shopping-bag_tab.svg">
+        </button>
+        <div *ngIf="selectedProduct.Quantity" class="pl-m">
+            <a class="new-a  pull-right" (click)="updateProductQuantity(1,selectedProduct.ProductVariantAttributeDC)"><i
+                class="fa fa-plus" aria-hidden="true"></i></a>
+            <input class="ip  pull-right" disabled size="2" [(ngModel)]="selectedProduct.Quantity">
+            <a class="new-a pull-right" (click)="updateProductQuantity(-1,selectedProduct.ProductVariantAttributeDC)"> <i
+                class="fa fa-minus" aria-hidden="true"></i></a>
+        
+            <!-- <button class="chk-btn" id="basketBtn" (click)="openCheckout()">Basket <i class="fa fa-arrow-right arw"
+                    aria-hidden="true"></i></button> -->
+        </div>
+        <div class="bg-text" *ngIf="selectedProduct.IsStockRequired == true && selectedProduct.Stock <= 0">
+            <p class="txtctr">Temporary Out Of Stock</p>
+        </div>
+
+    </div>
+</app-sk-dialog>
+
+<div *ngIf="productDetail && productDetail.VariationList && productDetail.VariationList.length > 0">
+    <p-sidebar [(visible)]="showVariants" position="bottom" [showCloseIcon]="false" [blockScroll]="true"
+        [style]="{'min-height': '40vh', 'width': '100%', 'overflow': 'scroll', 'padding': '14px 3px 10px 3px', 'border-radius': '15px 15px 0px 0px'}">
+
+        <div class="row s-hdr">
+            <span class="s-clr pull-left">Variants</span>
+            <a class="crl-btn pull-right" >View More</a>
+        </div>
+        <br>
+        <div class="scrolling-wrapper tp">
+            <div (click)="changeVariation(variation)" [ngClass]="{'card-1': true}"
+                *ngFor="let variation of productDetail.VariationList">
+                <div
+                    [ngClass]="{'brdr': true, 'nt-sel': !variation.isSelected, 'sel': variation.isSelected}">
+                    <app-image-not-found [imageFullPath]="getDefaultImage(variation)"></app-image-not-found>
+
+                    <div class="ftr1">
+                        <span class="tc" *ngFor="let attr of variation.ProductVariantAttributeDC">
+                            {{attr.AttributeValue}}
+                        </span>
+                        <div class="prc-1">
+                            <span class="spr"><i class="fa fa-inr" aria-hidden="true"></i> {{variation.SellingPrice}}</span>
+                            <span class="mrp"><del><i class="fa fa-inr" aria-hidden="true"></i> {{variation.Mrp}}</del></span>
+                            <br>
+                            <span class="prcnt">
+                                ({{(variation.Mrp - variation.SellingPrice)/variation.Mrp *100 | number:'1.0-0'}}%
+                                Off)
+                            </span>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+
+    </p-sidebar>
+
+</div>

@@ -1,0 +1,150 @@
+
+<app-top-navigation-wrapper>
+    <div class="row">
+        <div class="col-10">
+            <button class="tp-nav-btn" id="mybtn" (click)="appRoute()"><i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp;
+                My Order</button>
+        </div>
+        <div class="col-2 text-right">
+           <div class="txtt" (click)="display = true"><i class="fa fa-filter fa-lg" aria-hidden="true"></i></div> 
+        </div>
+      </div>
+</app-top-navigation-wrapper>
+
+<p-sidebar [(visible)]="display" [showCloseIcon]="false" position="bottom" styleClass="p-sidebar-sm" appendTo="body"
+[style]="{'height': '25rem', 'width': '375px', overflow : 'auto'}"
+>
+  <div class="card">
+    <h5 class="fl">Filter</h5>
+    <div class="row">
+      <div class="col-12" >
+        <div class="form-group">
+          <label for="orderType"><b>Order Id :</b></label>
+          <input type="number" id="orderid" name="orderid" class="form-control mb-4" placeholder="Enter Order Id"
+          [(ngModel)]="searchData.OrderId">
+          </div>
+      </div>
+      <div class="col-6" >
+        <div class="form-group">
+          <label for="orderType"><b>Start Date :</b></label>
+          <input type="date" id="startDate" name="startDate" class="form-control mb-4"
+          [(ngModel)]="searchData.FromDate">
+          <!-- <code *ngIf="start" class="se">Start Date is Mandatory.</code> -->
+          </div>
+          <code *ngIf="start" class="se">Start Date is Mandatory.</code>
+      </div>
+      <div class="col-6" >
+        <div class="form-group">
+          <label for="orderType"><b>End Date :</b></label>
+          <input type="date" id="endDate" name="endDate" class="form-control mb-4"
+          [(ngModel)]="searchData.ToDate" >
+          <!-- <code *ngIf="end" class="se">End Date is Mandatory.</code> -->
+          </div>
+          <code *ngIf="end" class="se">End Date is Mandatory.</code>
+      </div>
+      <div class="row" *ngIf="orderFilter">
+        <div id="chp-contr" class="col-12">
+          <span [ngClass]="{'h1btn': true, 'selected-t': orderFilter.Status ==1}" (click)="filterStatus(1)">Pending</span><!--{{statusList[0].Status}}-->
+          <!-- <span [ngClass]="{'h1btn': true, 'selected-t': orderFilter.Status ==2}"
+            (click)="filterStatus(2)">Accepted</span>
+          <span [ngClass]="{'h1btn': true, 'selected-t': orderFilter.Status ==3}" (click)="filterStatus(3)">Shipped</span> -->
+          <span [ngClass]="{'h1btn': true, 'selected-t': orderFilter.Status ==4}"
+            (click)="filterStatus(4)">Delivered</span>
+            <span [ngClass]="{'h1btn': true, 'selected-t': orderFilter.Status ==6}"
+            (click)="filterStatus(6)">Cancelled</span>
+        </div>
+    
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label> </label>
+          <div>
+            <button type="button" class="btn btn-outline-dark active btn1" id="resetBtn"
+              (click)="ngOnInit();">Reset</button>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-8 text-right">
+        <div class="form-group">
+          <label> </label>
+          <div class="text=right">
+            
+            <button type="button" class="btn btn-outline-primary active btn2" id="searchhBtn" value="Search" (click)="filterData(searchData)">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr style="border: width 2px;">
+
+  </div>
+</p-sidebar>
+
+<div class="search-results" infinite-scroll [infiniteScrollContainer]="'.cntr'" [fromRoot]="true"
+  [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance"
+  [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
+<div *ngIf="buyOrder && buyOrder.length > 0">
+        <div style="margin-bottom: 100px;">
+            <div *ngFor="let order of buyOrder">                
+              <div class="row itm" (click)="myOrder(order)">
+                <div class="col-8 lft-cntr" >
+                    <p><span class="prdt">{{order.BuyerName}}</span></p>
+                    <span >Order No. : {{order.Id}}</span>
+                    <br><span >DeliveryOption : {{order.DeliveryOption}}</span>
+                    <br><span>No. Of Item : {{order.ItemCount}} </span>
+                    <br><span>Mobile No. : {{order.PhoneNumber}} </span>
+                    <br><span>Pincode : {{order.Pincode}} </span>
+                    <span class="btn-prc">
+                        &#8377; {{order.TotalPrice}}
+                    </span>
+                </div>
+                <div class="col-4 img-brdr">
+                    <div class="imagestatus" *ngIf="order.OrderStatus== 'Pending'">
+                        <img src="../../assets/images/status/order.png" alt="test">
+                    </div>
+                    <div class="imagestatus" *ngIf="order.OrderStatus== 'Booked'">
+                        <img src="../../assets/images/status/order.png" alt="test">
+                    </div>
+                    <div class="imagestatus" *ngIf="order.OrderStatus== 'Accepted'">
+                        <img src="../../assets/images/status/confirm.png" alt="test">
+                    </div>
+                    <div class="imagestatus" *ngIf="order.OrderStatus== 'Shipped'">
+                        <img src="../../assets/images/status/shipped.png" alt="test">
+                    </div>
+                    <div class="imagestatus" *ngIf="order.OrderStatus== 'Cancelled'">
+                        <img src="../../assets/images/status/cancelled.png" alt="test">
+                    </div>
+                    <div class="imagestatus" *ngIf="order.OrderStatus== 'Canceled by System'">
+                        <img src="../../assets/images/status/cancelled.png" alt="test">
+                    </div>
+                    <div class="imagestatus" *ngIf="order.OrderStatus== 'Delivered'">
+                        <img src="../../assets/images/status/deliverd.png" alt="test">
+                    </div>
+                    <h6>{{order.OrderStatus}}</h6>
+                    <p>{{order.CreatedDate |  date: 'dd/MM/yyyy'}}</p>
+                    <span *ngIf="order.OrderStatus == 'Delivered' && order.Rating == 0">
+                      <a class="back" (click)="addReview(order)">Add Review</a></span>
+                      <ul class="list-inline rating-list" *ngFor="let star of stars; let i= index" style="display: inline-block"> 
+                        <li  id="{{'starId'+i}}" *ngIf="order.Rating > 0" [ngClass]="{'selected': (star <= order.Rating)}"> ★
+                        </li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+</div>
+</div>
+<div class="noData" *ngIf="!buyOrder || buyOrder.length < 1">
+    <span >No Data Found</span>
+    <button class="back" id="filterBtn" (click)="ngOnInit()" >&nbsp;
+        Reset Filter</button>
+    <!-- <a class="back" (click)="ngOnInit()" >Reset <i class="fa fa-angle-right" aria-hidden="true"></i> </a> -->
+</div>
+
+
+

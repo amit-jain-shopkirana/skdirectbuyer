@@ -1,0 +1,66 @@
+<div class="bck" *ngIf="buyerProfile">
+
+    <app-sk-dialog>
+        <div topNavigation>
+            <!-- (click)="closePopup()" -->
+            <button class="tp-nav-btn" id="skp" (click)="skip()">
+                <span class="fntt"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back</span>
+            </button>
+        </div>
+        <div body>
+            <form name="mobileInputForm" #mobileForm="ngForm" (ngSubmit)="saveDetail(mobileForm)">
+                <div class="lgn">
+                    <div class="hrd">
+                        Profile Update
+                    </div>
+
+                    <div class="mb">
+                        <label>Name:</label>
+                        <input name="nameInput" id="nameInput" class="inpt-al" type="text" maxlength="100"
+                            [(ngModel)]="buyerProfile.FirstName" (input)="inputValidator($event)" required
+                            placeholder="Name" #nameInput="ngModel">
+                        <div
+                            *ngIf="mobileForm && mobileForm.submitted && !nameInput.valid && nameInput.errors.required">
+                            <code>Enter Name</code>
+                        </div>
+                    </div>
+
+                    <div class="mb">
+                        <label>Email:</label>
+                        <input name="emailInput" id="emailInput" class="inpt-al" type="email" maxlength="100"
+                            [(ngModel)]="buyerProfile.Email" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" required
+                            placeholder="Email" #emailInput="ngModel">
+                        <div
+                            *ngIf="mobileForm && mobileForm.submitted && !emailInput.valid && emailInput.errors.required">
+                            <code>Enter Email</code>
+                        </div>
+                        <div *ngIf="inValidEmail && buyerProfile.Email.length > 0">
+                            <code> Enter Valid Email</code>
+                        </div>
+                    </div>
+
+                    <div class="mb">
+                        <label>Pincode:</label>
+                        <input name="pincodeInput" id="pincodeInput" class="inpt-al" type="text" required
+                            placeholder="Pincode" [(ngModel)]="buyerProfile.Pincode" maxlength="6"
+                            (blur)="checkPincode()" (ngModelChange)="checkPincode()" (input)="keyPressForInput($event)" #pincodeInput="ngModel">
+                        <div
+                            *ngIf="mobileForm && mobileForm.submitted && !pincodeInput.valid && pincodeInput.errors.required">
+                            <code>Enter Pincode</code>
+                        </div>
+                        <p class="isInValidPin" *ngIf="isInvalid">Pincode Should be 6 Digits</p>
+                        <p class="isInValidPin" *ngIf="isValid">InValid Pincode</p>
+                    </div>
+
+                    <div class="btn-nxt">
+                        <button type="submit" id="savebtnn">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </app-sk-dialog>
+
+
+
+</div>

@@ -1,0 +1,32 @@
+:host ::ng-deep .p-dialog .p-dialog-header {
+    display: none;
+}
+
+
+:host ::ng-deep .p-dialog .p-dialog-content {
+    border-radius: 11px;
+    padding: 1.3em;
+    background-color: #FFEAB3;
+    text-align: center;
+
+
+    img{
+        width: 66px;
+    }
+
+    .msg{
+        margin-top: 3vh;
+    }
+
+    .hddr{
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: rgb(43, 41, 41);
+    }
+    .bddt{
+        font-size: .9rem;
+        font-weight: bold;
+        color: rgb(124, 121, 121);
+
+    }
+}

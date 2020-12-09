@@ -1,0 +1,104 @@
+.bck {
+  background-color: white;
+  min-height: 100vh;
+  padding: 10px 10%;
+
+}
+
+.logo-m {
+  img {
+    width: 60px;
+  }
+
+  padding-top: 10%;
+  text-align: left;
+}
+
+.lgn {
+  padding-top: 5%;
+
+  .hrd {
+    color: rgb(187, 184, 184);
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  .spp {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 7vh;
+    color: #343553;
+  }
+
+  .otpp {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(97, 93, 93);
+  }
+
+  .mb {
+    position: relative;
+    padding-top: 20px;
+    margin-top: 4vh;
+
+    .in-1 {
+      display: inline-block;
+      width: 32%;
+      border-radius: 5px 0px 0px 5px;
+      border: solid 1px #343553;
+      height: 2.8rem;
+      padding-left: 35px;
+      background: white;
+    }
+
+    .in-2 {
+      padding-left: 15px;
+      display: inline-block;
+      width: 68%;
+      border-radius: 0px 5px 5px 0px;
+      border: solid 1px #343553;
+      height: 2.8rem;
+    }
+
+    .inr-img {
+      position: absolute;
+      left: 5px;
+      width: 24px;
+      top: 34px;
+
+    }
+
+  }
+}
+
+
+.btn-nxt {
+  padding-top: 40px;
+
+  button {
+    background-color:  #343553;
+    color: #58CCC1;
+    font-size: .9rem;
+    font-weight: bold;
+    padding: 8px 14px;
+    border: solid 1px  #343553;
+    border-radius: 8px;
+  }
+
+  button:active,
+  button:focus {
+    border-radius: 8px;
+    outline: none;
+  }
+}
+
+
+.btm-ftr{
+  position: absolute;
+  bottom: 4vh;
+}
+
+
+.s-clr{
+  color: #58CCC1 !important;
+}

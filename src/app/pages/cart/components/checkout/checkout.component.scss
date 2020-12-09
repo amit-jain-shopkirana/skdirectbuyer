@@ -1,0 +1,188 @@
+.bck {
+  background: white;
+  padding: 10px;
+}
+
+.amt-txt {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.amt {
+  float: right;
+  color: #E9754E;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.rght-arw {
+  float: right;
+  color: #E9754E;
+  margin-top: -5px;
+}
+
+.cpn {
+  float: left;
+  color: #E9754E;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.tbb {
+  width: 100%;
+
+  td:nth-child(2) {
+    text-align: right;
+  }
+}
+
+
+.mr-1n {
+  margin-top: 1px;
+}
+
+.img-txt {
+  display: inline-block;
+  top: 0px;
+  position: absolute;
+  margin-top: -6px;
+  margin-left: 8px;
+}
+
+.svgg {
+  margin-top: -9px;
+  width: 50;
+  height: 50;
+}
+
+.pmnt {
+  float: left;
+  font-size: 17px;
+  font-weight: bold;
+  width: 100%;
+}
+
+
+.lwr-txt {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.5;
+  display: block;
+}
+
+.example-radio-button {
+  display: inline;
+
+}
+
+
+.btn-prc {
+  float: right;
+  border: solid 1px black;
+  padding: 5px 20px;
+  border-radius: 39px;
+}
+
+.btm-nv {
+  background: white;
+  padding: 0px 10px;
+  width: 100%;
+}
+
+.prc-amt {
+  color: #E9754E !important;
+  font-size: 21px;
+}
+
+.itm {
+  font-weight: bold;
+}
+
+.chk-btn {
+  right: 0px;
+  position: absolute;
+  top: 0px;
+  background: #E9754E;
+  color: white;
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  border: solid 1px #E9754E;
+  border-radius: 8px;
+}
+
+.arw {
+
+  padding: 2px 4px;
+  background: white;
+  color: #E9754E;
+  border-radius: 17px;
+  font-size: 16px;
+}
+
+.fntt{
+  font-size: 19px;
+}
+
+
+.nt-fnd {
+  position: fixed;
+  top: 0px;
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  padding-top: 20vh;
+
+
+  .hdr{
+    font-size: 1.5rem;
+  }
+  a{
+      color: #E9754E;
+      font-weight: bold;
+  }
+}
+
+.add-n-a{
+  float: right;
+  color: #E9754E !important;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0rem;
+}
+
+.nme{
+  color: #E9754E;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.slct{
+  border: solid 1px #E9754E;
+  .slct-icon{
+    color: #E9754E;
+    position: absolute;
+    float: right;
+    top: 5px;
+    right: 5px;
+  }
+}
+
+.delivery-txt {
+  display: inline-block;
+  top: 0px;
+  position: absolute;
+  margin-top: 3px;
+  margin-left: 8px;
+}
+
+
+.tp-btn{
+  
+    background-color: #E9754E;
+    color: white;
+    border: none;
+  
+}

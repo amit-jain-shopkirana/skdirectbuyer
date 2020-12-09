@@ -1,0 +1,168 @@
+//   .example-spacer {
+//     flex: 1 1 auto;
+//   }
+// mat-toolbar{
+//     background: #ff5a00 !important;
+//     position: fixed;
+//     top: 0
+//   }
+
+//  .cr-brdr{
+//     border-radius: 25px;
+//     font-size: 18px;
+//     border: solid 1x whitesmoke;
+//     border: solid 1px white;
+//  } 
+
+
+//  .mr-5mm{
+//   margin-top: -5px;
+//  }
+
+.top-nv-bar {
+  z-index: 8;
+  position: fixed;
+  min-height: 55px;
+  max-height: 55px;
+  top: 0px;
+  left: 0px;
+  background: #343553;
+  width: 100%;
+  padding: 10px 5px 5px 5px;
+  color: #58CCC1;
+
+  .sde-br {
+    padding-left: 15px;
+    padding-top: 5px;
+    display: inline-block;
+    width: 15%;
+  }
+
+  .inpt {
+    display: inline-block;
+    width: 70%;
+
+    input {
+      width: 100%;
+      border: solid 1px white;
+      border-radius: 15px;
+    }
+  }
+
+  .lg-out {
+    padding-left: 5px;
+    padding-top: 5px;
+   
+    width: 13%;
+    float: right;
+    i {
+      float: right;
+      padding: 6px;
+      padding-right: 10px;
+    }
+
+  }
+}
+
+
+:host ::ng-deep .ui-state-active {
+  background: black;
+}
+
+:host ::ng-deep .p-sidebar {
+  padding: 0em;
+}
+
+:host ::ng-deep .p-panelmenu-header-link:focus,
+:host ::ng-deep .p-panelmenu-header-link:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+:host ::ng-deep .p-panelmenu .p-panelmenu-header>a:focus {
+  outline: 0 none;
+
+  box-shadow: none;
+}
+
+.slr {
+  width: 100%;
+  min-height: 10vh;
+  background-color: #E9754E;
+  border: solid 1px #E9754E;
+  color: white;
+  font-size: 1rem;
+  padding: 1em;
+}
+
+.hdr{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.byr{
+  font-size: .8rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+  margin: 2px;
+}
+
+.itm {
+
+  background: bisque;//white;
+  min-height: 100px;
+  border-bottom: solid 1px white;
+  border-radius: 0px;
+  margin: 2px 5px 0px 5px;
+  width: 173%;
+}
+
+.img-brdr {
+  border-right: solid 1px lightgray;
+  text-align: center;
+  padding: 15px 0px !important;
+
+  img {
+    width: 80%;
+  }
+}
+.prdt {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #E9754E;
+}
+
+.hd1 {
+  font-size: .9rem;
+  font-weight: 100;
+}
+
+.lft-cntr {
+  padding: 15px 10px !important;
+  position: relative;
+  color: black;
+}
+
+.nme {
+  font-size: .9rem;
+  font-weight: bold;
+}
+.lft
+{
+  margin-left: -59px;
+}
+.search-results {
+  flex: none;
+}
+:host ::ng-deep .cntr {
+  background-color: #FFFAF7 !important;
+  flex: none;
+}
+.search-results {
+  flex: none;
+}

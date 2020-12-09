@@ -1,0 +1,34 @@
+<div class="row tp">
+    <div class="col-8">
+        <span class="hdr">Popular Brands</span>
+        <div class="bddy">Most Ordered from around your locality</div>
+    </div>
+    <div class="col-4">
+        <a class="back bddy" (click)="viewAllBrands()">View all <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
+    </div>
+</div>
+
+<div class="container" *ngIf="topPopularBrandList && topPopularBrandList.length > 0">
+
+    <div class="row br">
+        <div class="col-6" *ngFor="let category Of topPopularBrandList">
+            <div class="brdr" (click)="itemList(category)">
+                <div class="bdy">
+                    <div class="hdr-b">
+                        <img [src]="baseUrl + category.ImagePath" style="width: 60%;">
+                    </div>
+                    <p>
+                        <span><b>{{category.BrandName}}</b></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div *ngIf="!topPopularBrandList || !(topPopularBrandList.length > 0)">
+    <app-no-item-found body="For your location there is no seller active, please check in future." header="No Brand Found"></app-no-item-found>
+</div>

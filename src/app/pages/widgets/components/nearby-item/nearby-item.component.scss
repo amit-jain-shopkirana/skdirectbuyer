@@ -1,0 +1,138 @@
+.hdr {
+  color: #58CCC1;
+  font-size: 1rem;
+  font-weight: 600 !important;
+}
+
+
+.bdyy {
+  font-size: .9rem;
+}
+
+.back {
+  float: right;
+  color: #E9754E !important;
+  cursor: pointer;
+}
+
+.bdy {
+  padding: 10px;
+}
+
+.hdr-b {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 12px;
+  line-height: 13px;
+  margin-top: 12px;
+  margin-bottom: 1rem;
+  margin-left: 42px;
+}
+
+.str {
+  position: absolute;
+  right: 6px;
+  bottom: 0px;
+}
+
+// .horizontal-scroll-wrapper {
+//     width: 75px;
+//     height: 53px;
+//     overflow-y: auto;
+//     overflow-x: hidden;
+//   }
+//   .horizontal-scroll-wrapper > div {
+//     width: 100px;
+//     height: 100px;
+//   }
+
+.tp .brdr {
+  min-height: 110px;
+  border: solid 1px rgb(199, 192, 192);
+  border-radius: 9px;
+  margin-bottom: 5px;
+  text-align: center;
+  height: 29vh;
+  position: relative;
+  margin: 0.5em;
+
+  .wdt {
+    min-width: 143px;
+    width: 143px;
+    max-width: 143px;
+  }
+}
+
+
+:host ::ng-deep .imgg {
+  margin-top: 0.4em;
+  max-height: 20vh;
+}
+
+
+
+.txt-abs {
+  position: absolute;
+  align-items: center;
+  text-align: center;
+  bottom: .2em;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: .8rem;
+
+}
+
+
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  margin-left: -.3em;
+
+  .card-1 {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+
+
+.scrolling-wrapper {
+
+  margin-bottom: 20px;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+.pr-nm {
+  color: rgb(39, 37, 37);
+  font-weight: bold;
+}
+
+.pr-prc{
+  color: rgb(131, 126, 126);
+  font-weight: bold;
+}
+
+
+.btnnn{
+  font-size: .8rem;
+  float: right;
+  background: #343553;
+  color: #58CCC1 !important;
+  padding: .3em .7rem;
+  border: solid 1px #343553;
+  border-radius: 22px;
+}

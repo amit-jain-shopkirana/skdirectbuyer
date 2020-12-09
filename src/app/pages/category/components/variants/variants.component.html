@@ -1,0 +1,36 @@
+<!-- <div class="search-results" infinite-scroll [infiniteScrollContainer]="'.cntr'" [fromRoot]="true"
+[infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance"
+[infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
+  <div *ngFor="let items of variantProductList; let i=index;">
+    <div class="row itm">
+      <div class="col-4 img-brdr" (click)="productDetail(items)">
+        <img class="img-fluid" [src]="apiurl + items.ImagePath">
+      </div>
+      <div class="col-8 lft-cntr">
+        <p><span class="prdt" (click)="productDetail(items)">{{items.ProductName}}</span> </p>
+        <div>
+          <span (click)="productDetail(items)"> MRP: <s><i class="fa fa-inr" aria-hidden="true"></i>{{items.Mrp | number :'1.0-2'}}/-</s>&nbsp;</span>
+          <br><span class="clr">Selling Price : {{items.SellingPrice}} /-</span>
+        </div>
+        <div (click)="productDetail(items)">Quantity: {{items.Measurement}}{{items.Uom}}</div>
+        <div *ngIf="items.VariationCount > 0">
+          <a (click)="variationPage(items)" href="javascript:void(0)">Variants {{items.VariationCount}} </a>
+        </div>
+        <div class="abs">
+          <button class="btn btn-my" *ngIf="items.Qty == 0" (click)="addProduct(items)">Add</button>
+          <div *ngIf="items.Qty > 0">
+            <button type="button" class="s1" data-type="plus" data-field="quant[1]" (click)="increment(items)">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+            <div class="div1">
+              <input [(ngModel)]="items.Qty" [name]="'qty' + i" class="r" type="number">
+            </div>
+            <button type="button" class="s1" data-type="minus" data-field="quant[1]" (click)="decrement(items)">
+              <i class="fa fa-minus" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div> -->

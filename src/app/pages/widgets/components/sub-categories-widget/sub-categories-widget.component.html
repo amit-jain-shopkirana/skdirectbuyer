@@ -1,0 +1,28 @@
+
+<div  class="container" *ngIf="topSubCategoryList && topSubCategoryList.length > 0">
+    <div class="row tp">
+        <div class="col-8">
+            <span class="hdr">Sub Categories</span>
+            <div>Top near from you</div>
+        </div>
+        <!-- <div class="col-4">
+            <a class="back" (click)="viewAllSellers()">View all <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
+        </div> -->
+    </div>
+      <div class="row br">
+        <div class="col-6" *ngFor="let category Of topSubCategoryList">
+            <div class="brdr">
+                <div class="bdy">
+                    <div class="hdr-b">                      
+                        <img [src]="baseUrl + category.ImagePath" >
+                    </div>
+                    <p>
+                        <span style="color: orangered;margin-top: 0px;margin-right: 0px;margin-left: -8px;"><b>{{category.CategoryName}}</b></span>
+                    </p>
+                </div>                
+            </div>
+        </div>
+    </div>
+  
+
+</div>

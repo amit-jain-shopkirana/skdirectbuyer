@@ -1,0 +1,251 @@
+.itm {
+    background: white;
+    min-height: 100px;
+    border: solid 1px gray;
+    border-radius: 10px;
+    margin: 10px 5px 0px 5px;
+  }
+  
+  .img-brdr {
+    border-left: solid 1px gray;
+    text-align: center;
+    padding: 10px 0px !important;
+  
+    img {
+      width: 80%;
+      // max-height: 80px;
+      // min-height: 80px;
+    }
+  }
+  
+  .lft-cntr {
+    padding: 40px 10px !important;
+    position: relative;
+  }
+  
+  .dlt {
+    position: absolute;
+    right: 6px;
+    top: 2px;
+    font-size: 20px;
+  }
+  
+  .prdt {
+    font-size: 18px;
+    font-weight: bold;
+    color: orangered;
+  }
+  
+  .prc {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color: #E9754E !important;
+    font-size: 21px;
+  }
+  
+  .prc-amt {
+    color: #E9754E !important;
+    font-size: 21px;
+  }
+  
+  .cart {
+    position: relative;
+  }
+  
+  .btm-nv {
+    background: white;
+    padding: 0px 10px;
+    width: 100%;
+  }
+  
+  .itm {
+    // font-weight: bold;
+    font-size: smaller;
+    font-weight: 600;
+  }
+  
+  .chk-btn {
+    right: 0px;
+    position: absolute;
+    top: 0px;
+    background: #E9754E;
+    color: white;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border: solid 1px #E9754E;
+    border-radius: 8px;
+  }
+  
+  .arw {
+  
+    padding: 2px 4px;
+    background: white;
+    color: #E9754E;
+    border-radius: 17px;
+    font-size: 16px;
+  
+  }
+  
+  .back {
+    float: right;
+    color: black !important;
+    padding-top: 0px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: white;
+    // margin-top: 6px;
+    margin-right: 10px;
+    padding-right: 15px;
+    border-radius: 23px;
+  }
+  .noData
+  {
+      margin-top: 12px;
+  }
+  .filtercss
+  {
+      text-align: center;
+      font-size: initial;
+      border: solid 1px black;
+      padding: 5px 20px;
+      border-radius: 39px;
+      display: block;
+      background: white;
+      font-weight: bold;
+  }
+  
+  .clr {
+    color: #E9754E;
+  }
+  
+  .nt-fnd {
+    position: fixed;
+    top: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    padding-top: 20vh;
+  
+  
+    .hdr{
+      font-size: 1.5rem;
+    }
+    a{
+        color: #E9754E;
+        font-weight: bold;
+    }
+  }
+  
+.btn-prc {
+    float: right;
+    border: solid 1px black;
+    padding: 5px 20px;
+    border-radius: 39px;
+    background-color: aquamarine;
+    margin-top: 41px;
+  }
+  .tp-nav-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+}
+.btn2{
+  margin-top: -145px;
+}
+.btn1{
+  margin-top: 9px;
+}
+  .back {
+    float: right;
+    color: orangered !important;
+    padding-top: 0px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: lavender;
+    margin-right: 6px;
+    padding-right: 8px;
+    border-radius: 23px;
+    padding-left: 6px;
+  }
+  
+  .rating-list {
+    li {
+    font-size: 20px;
+        // float: right;
+        color: #ddd;
+        // padding: 10px 5px;
+        &:hover {
+            color: orangered;
+            ~ {
+                li {
+                    color: orangered;
+                }
+            }
+        }
+    }
+    li.selected {
+        color: orangered;
+    }
+    display: inline-block;
+    list-style: none;
+  }
+  .h1btn {
+    max-width: 300px;
+    display: inline-block;
+    border-radius: 25px;
+    border: 1px solid #E9754E;
+    box-shadow: 0px 1px 6px 0px #ccc;
+    margin-top: 15px;
+    background: #fff;
+    text-align: center;
+    color: #E9754E;
+    font-weight: 400;
+    padding: 0.2em 1.7em;
+    margin-right: 0.2em;
+    font-size: .9rem;
+  }
+  
+  #chp-contr {
+    text-align: center;
+  }
+  
+  .selected-t {
+    background-color: #E9754E;
+    color: white;
+  }
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin-left: -9px;
+}
+ 
+.fl
+{
+  text-align: center;
+  font-weight: 600;
+}
+.search-results {
+  flex: none;
+}
+:host ::ng-deep .cntr {
+  background-color: #FFFAF7 !important;
+  flex: none;
+}
+.search-results {
+  flex: none;
+}
+.se
+{
+  font-size: 12px;
+  color: red;
+}

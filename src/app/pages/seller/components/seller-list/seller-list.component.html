@@ -1,0 +1,33 @@
+<app-top-navigation-wrapper>
+    <div class="col-6">
+    <span class="hd" (click)="topseller()"><b><i class="fa fa-arrow-left"></i> &nbsp;&nbsp;Back</b></span>
+    </div>   
+    <span style="color: white;"><hr></span>
+    </app-top-navigation-wrapper>
+<div class="container">
+    <div class="row tp">
+        <div class="col-12">
+            <span class="fnt-clr">Top Seller</span>
+            <div>Top near from you</div>
+        </div>
+
+        <div class="search-results" infinite-scroll [infiniteScrollContainer]="'.cntr'" [fromRoot]="true"
+        [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance"
+        [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
+
+            <div class="col-12" *ngFor="let seller of sellerList" (click)="onSelectSeler(seller)">
+                    <div class="row itm">
+                        <div class="col-4 img-brdr">
+                            <img [src]="baseUrl + seller.ImagePath">
+                        </div>
+                        <div class="col-8 lft-cntr">
+                            <p><span class="prdt">{{seller.FirstName}}{{seller.MiddleName?(' '+seller.MiddleName) :'' }}{{seller.LastName?(' '+seller.LastName) :'' }}</span>
+                            </p>
+                            <span class="hd1"> PIN: </span><span class="nme">{{seller.Pincode}}</span>
+                            <div><span class="hd1">State : </span><span class="nme">{{seller.State}} </span></div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

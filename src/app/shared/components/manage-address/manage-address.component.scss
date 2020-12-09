@@ -1,0 +1,47 @@
+.example-icon{
+    font-size: 19px;
+}
+
+
+.btm{
+    width: 100%;
+    padding: 10px 15px;
+}
+.chk-btn{
+    float: right;
+    background-color: #E9754E;
+    color: white;
+    font-size: 20px;
+    border: solid 1px #E9754E;
+    border-radius: 4px;
+    width: 100%;
+}
+
+
+.modal-content{
+    border-radius: 0px;
+    margin-top: 10px;
+}
+
+label{
+    color: rgb(161, 156, 156);
+}
+
+.opt{
+    color: lightgray;
+}
+.isInValidPin
+{
+    font-size: 87.5%;
+    color: #e83e8c;
+    margin-top: -5px;
+}
+
+:host ::ng-deep .nv-bar{
+    display: none;
+}
+
+.xx{
+    margin-top: 5px;
+    margin-right: 5px;
+}

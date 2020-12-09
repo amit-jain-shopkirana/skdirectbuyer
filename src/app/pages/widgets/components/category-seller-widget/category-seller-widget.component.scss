@@ -1,0 +1,118 @@
+.hdr {
+  color: #58CCC1;
+  font-size: 1rem;
+  font-weight: 600 !important;
+}
+
+.bdyy{
+  font-size: .9rem;
+}
+
+.tp {
+  margin: 5px 0px 0px 0px;
+
+}
+
+
+.back {
+  float: right;
+  color: #E9754E !important;
+  padding-top: 30px;
+  cursor: pointer;
+}
+
+.brdr {
+  min-height: 14vh;
+  max-height: 14vh;
+  border: solid 1px #d3cdcd;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  background: #FFEAB3;
+
+}
+
+.bdy {
+  padding: 10px;
+}
+
+.hdr-b {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+p {
+  font-size: 12px;
+  line-height: 13px;
+}
+
+.str {
+  position: absolute;
+  right: 6px;
+  bottom: 0px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 10px;
+}
+
+.grid-item {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 60px;
+  font-size: 11px;
+  text-align: center;
+}
+
+
+/*  */
+
+.br .col-6 .brdr {
+  min-height: 10vh;
+  max-height: 10vh;
+  border: solid 1px gray;
+  margin-bottom: -3px;
+  margin-right: -5px;
+  margin-left: -1px;
+}
+
+
+
+
+
+  
+  
+  :host ::ng-deep .imgg {
+    max-height: 9vh;
+    max-width: 90%;
+  }
+  
+  .txt-abs{
+      align-items: center;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: .7rem;
+      bottom: 9px;
+      position: absolute;
+  }
+
+  
+.tt{
+  padding: 0.2em !important;
+  }
+
+
+  .btnnn{
+    font-size: .8rem;
+    float: right;
+    background: #343553;
+    color: #58CCC1 !important;
+    padding: .3em .7rem;
+    border: solid 1px #343553;
+    border-radius: 22px;
+  }

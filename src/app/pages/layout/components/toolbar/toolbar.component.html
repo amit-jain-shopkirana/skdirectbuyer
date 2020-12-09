@@ -1,0 +1,54 @@
+
+<div class="top-nv-bar">
+    <div class="sde-br">
+        <i class="fa fa-bars fa-lg" aria-hidden="true" (click)="openCloseSidebar(true)"></i>
+    </div>
+    <div class="inpt">
+        <input [(ngModel)]="ProductName" placeholder="Search By Product/Brand/Category" name="CategoryName" 
+        (ngModelChange)="getSellerProductlistforfilter(ProductName)">
+
+        <div class="search-results" infinite-scroll [infiniteScrollContainer]="'.cntr'" [fromRoot]="true"
+        [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance"
+        [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
+        <div *ngIf="showList == true">
+            <div class="col-10 lft" *ngFor="let seller of sellerProductList">
+                <div class="row itm"  (click)="onSelectSeller(seller)">
+                    <div class="col-4 img-brdr">
+                        <img [src]="baseUrl + seller.ImagePath">
+                    </div>
+                    <div class="col-8 lft-cntr">
+                        <p><span class="prdt">{{seller.ShopName}}</span>
+                        </p>
+                        <span class="hd1"> Address: </span><span class="nme">{{seller.AddressOne}}{{seller.AddressTwo?(' '+seller.AddressTwo) :'' }}{{seller.AddressThree?(' '+seller.AddressThree) :'' }}</span>
+                        <span class="hd1"> PIN: </span><span class="nme">{{seller.Pincode}}</span>
+                        <div><span class="hd1">City : </span><span class="nme">{{seller.CityName}} </span></div>
+                        <div><span class="hd1">State : </span><span class="nme">{{seller.State}} </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- <p-autoComplete id="ap-ac1" [suggestions]="sellerProductList" field="ShopName" 
+        (onSelect)="onSelectSeller($event)" [(ngModel)]="ProductName" placeholder="Search By Product Name"
+        (completeMethod)="getSellerlistforfilter($event)" [style]="{'width':'90%'}" [inputStyle]="{'width':'100%'}"
+        name="CategoryName">
+      </p-autoComplete> -->
+    </div>
+    <div class="lg-out">
+        <i class="fa fa-power-off fa-lg" aria-hidden="true" (click)="logout()"></i>
+    </div>
+</div>
+
+<div id="lyt-sde-bar" #lyt>
+    <p-sidebar [baseZIndex]="-989" [blockScroll]="true" [appendTo]="lyt" styleClass="top-nv-side-bar"
+    [(visible)]="isSidebarOpened" [blockScroll]="true" [showCloseIcon]="false" (onHide)="openCloseSidebar(false)">
+    <div class="slr" *ngIf="buyerProfile">
+        <div class="hdr">Welcome {{buyerProfile.FirstName? buyerProfile.FirstName : 'Guest'}}</div><!--Buyer APP-->
+        <div class="byr" (click)="openBuyerApp()"> <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          &nbsp;  Open Seller App
+        </div>
+    </div>
+    <p-panelMenu [model]="items" [style]="{'width':'100%'}"></p-panelMenu>
+</p-sidebar>
+</div>

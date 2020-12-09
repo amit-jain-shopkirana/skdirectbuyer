@@ -1,0 +1,49 @@
+<div *ngIf="loginLayout">
+    <!-- Mobile number input starts-->
+    <div *ngIf="loginLayout.isShowLoginInput">
+        <app-mobile-input (onPasswordMetodSelect)="onPasswordInputSelect($event)"
+            (onMobileSelect)="onMoileSelection($event)"></app-mobile-input>
+    </div>
+    <!-- Mobile number input ends-->
+
+    <!-- login method input starts-->
+    <div *ngIf="loginLayout.isShowLoginMethod">
+        <app-login-method-input (onLoginMethodSelected)="onLoginMethodSelect($event)"></app-login-method-input>
+    </div>
+    <!-- login method input ends-->
+
+
+    <div *ngIf="loginLayout.isShowVerificationInput">
+        <app-verification-input [isPasswordLogin]="isPasswordMethodSelect" [MobileNumber]="mobileNumber"
+            [WrongOTP]="WrongOTP" (onSubmitOtpEvent)="onSubmitOtp($event)"
+            (onSubmitPasswordEvent)="onSubmitPassword($event)" (onLoginMethodSelected)="onLoginMethodSelect($event)">
+        </app-verification-input>
+    </div>
+
+
+</div>
+
+
+<div *ngIf="showLoginSucessfullDialog">
+    <p-dialog [(visible)]="showLoginSucessfullDialog" [draggable]="false" [dismissableMask]="false" [closable]="false"
+        [modal]="true" [style]="{width: '80vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="header">
+
+        </ng-template>
+       <img src="assets/images/login_successfull.png">
+        <!-- <ng-template pTemplate="footer">
+            <p-button icon="pi pi-check"  label="Yes" class="p-button-text"></p-button>
+            <p-button icon="pi pi-times" (click)="displayModal=false" label="No"></p-button>
+        </ng-template> -->
+        <div class="msg">
+            <span class="hddr">Woohoo!</span>
+            <br>
+            <span class="bddt" *ngIf="isPasswordMethodSelect">
+                Password verified successfully
+            </span>
+            <span class="bddt" *ngIf="!isPasswordMethodSelect">
+                OTP verified successfully
+            </span>
+        </div>
+    </p-dialog>
+</div>

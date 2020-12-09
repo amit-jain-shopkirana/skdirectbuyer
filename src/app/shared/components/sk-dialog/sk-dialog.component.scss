@@ -1,0 +1,30 @@
+.dialog-my {
+  position: fixed;
+  left: 0px;
+  width: 100%;
+  min-height: calc(var(--vh, 1vh) * 100);
+  background-color: #E9E7E7;
+  top: 0px;
+  z-index: 11;
+
+  padding-bottom: 55px;
+  padding-top: 55px;
+  max-height: calc((var(--vh, 1vh) * 100) - 55px);
+  overflow-y: auto;
+}
+
+
+
+
+.dialog-my-bt {
+  z-index: 12;
+  position: fixed;
+  width: 100%;
+  left: 0;
+}
+
+.dialog-my-tp {
+  position: absolute;
+  z-index: 12;
+  left: 0;
+}

@@ -1,0 +1,112 @@
+<app-top-navigation-wrapper>
+  <div class="row">
+    <div class="col-10">
+      <button class="tp-nav-btn" id="brandheaderBtn" (click)="appRoute()"><i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp;
+        Brands</button>
+      <!-- <span class="hd"><b> My Order</b></span> -->
+    </div>
+    <div class="col-2 text-right">
+      <div class="txtt" (click)="display = true"><i class="fa fa-filter fa-lg" aria-hidden="true"></i></div>
+    </div>
+  </div>
+</app-top-navigation-wrapper>
+
+<p-sidebar [(visible)]="display" [showCloseIcon]="false" position="bottom" styleClass="p-sidebar-sm" appendTo="body"
+  [style]="{'height': '17rem', 'width': '362px'}">
+  <div class="card">
+    <h5 class="fl">Filter</h5>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label class="col-12"> <b>Brand : </b></label>
+          <p-autoComplete id="ap-ac" [suggestions]="searchedbrandList" field="BrandName"
+            (onSelect)="onSelectbrand($event)" [(ngModel)]="BrandName" placeholder="Search Brand Name"
+            (completeMethod)="getbrandlistforfilter($event)" [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}"
+            name="brandName">
+          </p-autoComplete>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label> </label>
+          <div>
+            <button type="button" id="brandResetBtn" class="btn btn-outline-dark active btn1" (click)="ngOnInit();">Reset</button>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-8 text-right">
+        <div class="form-group">
+          <label> </label>
+          <div class="text=right">
+
+            <button type="button" id="brandSearchBtn" class="btn btn-outline-primary active btn2" value="Search"
+              (click)="getBrands(searchData)">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr style="border: width 2px;">
+
+  </div>
+</p-sidebar>
+
+<div class="search-results" infinite-scroll [infiniteScrollContainer]="'.cntr'" [fromRoot]="true"
+  [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance"
+  [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
+  <div style="margin-bottom: 8px;">
+    <div *ngFor="let items of brandList">
+      <div class="row itm" (click)="itemList(items)">
+        <div class="col-4 img-brdr">
+          <img [src]="baseUrl + items.ImagePath" alt="{{items.ProductName}}" style="width: 111px;">
+        </div>
+        <div class="col-8 lft-cntr">
+          <p><span class="prdt">{{items.BrandName}}</span></p>
+          <!-- <span>Brand Name : {{items.CompanyName}}</span> -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- <p-dataView #dv [value]="brandList" [paginator]="true" [rows]="5" paginatorPosition="bottom">
+    
+    <ng-template let-items pTemplate="listItem">
+        <div class="p-col-12">
+            <div class="row itm">
+                <div class="disp">
+                    <div class="img-brdr">
+                    <img class="imgWidth" src="{{items.ImagePath}}" >
+                </div>
+                    <div class="p-grid" >
+            <div class="row img-horizontalbrdr">
+              <div class="col-md-12">
+                <b>Brand:</b><span style="color: orangered;"> {{items.BrandName}}</span><br>
+                <b>Company:</b><span style="color: orangered;">{{items.CompanyName}}</span>
+                <div class="row t1">
+                  <div class="col-6" >
+                    <b>Brand:</b> {{items.BrandName}}<br>
+                    <b>Company:</b>{{items.CompanyName}}
+                  </div>
+                  <div class="col-6 tc" >
+                    {{items.BrandName}} <br />
+                    <span style="margin-left: 20px;">{{items.CompanyName}}</span> <br />
+                   
+                  </div>
+                </div>
+              </div>         
+            </div> 
+            </div>
+                </div>  
+          </div>
+        </div>
+    </ng-template>
+</p-dataView> -->

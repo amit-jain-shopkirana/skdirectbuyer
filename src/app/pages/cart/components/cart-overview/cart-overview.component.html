@@ -1,0 +1,87 @@
+<div *ngIf="cart && cart.Cart && cart.Cart.length > 0">
+    <div>
+        <app-top-navigation-wrapper>
+            <button  (click)="back()" id="bckBtnN" class="tp-btn">
+    
+                <span class="fntt"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back</span>
+            </button>
+        </app-top-navigation-wrapper>
+        <div class="container">
+            <div class="row tp">
+                <div class="col-12">
+                    <span class="clr" *ngIf="cart && !(cart.Cart && cart.Cart.length > 0)">No Items are their in Your
+                        Cart</span>
+                    <a class="back" (click)="clearAllItems()" *ngIf="(cart.Cart && cart.Cart.length > 0)">Clear all <i
+                            class="fa fa-angle-right" aria-hidden="true"></i> </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div style="margin-bottom: 100px;">
+            <div class="row itm" *ngFor="let cart of cart.Cart">
+                <div class="col-4 img-brdr">
+                    <img [src]="baseUrl + cart.ImagePath">
+                </div>
+                <div class="col-8 lft-cntr" >
+                    
+                    <a class="dlt" (click)="deleteCartItems(cart)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+
+                    <p><span class="prdt">{{cart.ProductName}}
+                        <span *ngIf="cart.ShoppingCartVariantAtrribute != null && cart.ShoppingCartVariantAtrribute.length > 0 && cart.ShoppingCartVariantAtrribute.length <= 2"> (<span  *ngFor="let carts of cart.ShoppingCartVariantAtrribute" style="font-weight: 100;font-size: 13px;">{{carts ? carts.AttributeValue : ''}}{{carts.length != 0 ? ',' : ''}}</span>)</span>
+
+                        <br>
+                        <!-- <div *ngFor="let carts of cart.ShoppingCartVariantAtrribute" style="font-weight: 100;"> -->
+                            <!-- <span  >({{carts ? carts.AttributeName : ''}} :</span> -->
+                           <span *ngIf="cart.ShoppingCartVariantAtrribute != null && cart.ShoppingCartVariantAtrribute.length > 2"> (<span  *ngFor="let carts of cart.ShoppingCartVariantAtrribute" style="font-weight: 100;font-size: 13px;">{{carts ? carts.AttributeValue : ''}}{{carts.length != 0 ? ',' : ''}}</span>)</span>
+                            <!-- <span  *ngFor="let carts of cart.ShoppingCartVariantAtrribute" style="font-weight: 100;">{{carts ? ',' : ''}}</span><br/> -->
+                        <!-- </div>) -->
+                    </span></p>
+                    <span> MRP: <s><i class="fa fa-inr" aria-hidden="true"></i>{{cart.Mrp | number :'1.0-2'}}
+                            /-</s>&nbsp;</span>
+                    <br><span class="clr">Selling Price : {{cart.price}} /-</span>
+                    <br><span>Quantity : {{cart.Quantity}} </span>
+                   <span> <a class="prc lft" >&#x20B9; {{cart.TotalPrice}}/-</a></span><br>
+                    <span style="float: right;" *ngIf="((cart.IsStockRequired == true && cart.Stock > 0) || (cart.IsStockRequired == false))">
+                      <button class="btnnp" id="addtoCartBtn4" *ngIf="!cart.Quantity" (click)="updateProductQuantity(1,cart)">ADD TO CART</button>
+                      <div *ngIf="cart.Quantity" class="pl-m">
+                          <a class="new-a" (click)="updateProductQuantity(-1,cart)"> <i class="fa fa-minus" aria-hidden="true"></i></a>
+                          <input class="ip" disabled size="1" [(ngModel)]="cart.Quantity">
+                          <a class="new-a" (click)="updateProductQuantity(1,cart)"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                      </div>
+                    </span>
+                    <span *ngIf="cart.IsStockRequired == true && cart.Stock <= 0">
+                            <span class="stock">Out Of Stock</span>
+                        <!-- <div class="bg-text">
+                            <p class="txtctr">Temporary Out Of Stock</p>
+                          </div> -->
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <app-bottom-navigation-wrapper>
+        <div class="btm-nv" *ngIf="cart && cart.TotalItems > 0">
+            <div class="row">
+                <div class="col-12">
+                    <span class="prc-amt">&nbsp; &#x20B9; {{cart.TotalAmount}}</span>
+                    <br>
+                    <span class="itm">Total Item:{{cart.TotalItems}}</span>
+                    <button class="chk-btn" id="checkoutbTn" (click)="openCheckout()">Checkout <i class="fa fa-arrow-right arw"
+                            aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </app-bottom-navigation-wrapper>
+</div>
+<div *ngIf="afterInit && !(cart && cart.Cart && cart.Cart.length > 0)" class="nt-fnd">
+    <img src="assets/images/empty_cart.png">
+    <div class="hdr">Nothing in Basket</div>
+    <div><a (click)="navigateToSeller()">Keep Shopping</a></div>
+</div>
+
+
+<!-- 
+<p-confirmDialog [style]="{width: '80vw'}" [baseZIndex]="10000"></p-confirmDialog> -->

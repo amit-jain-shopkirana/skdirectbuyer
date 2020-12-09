@@ -1,0 +1,125 @@
+img {
+  height: 50px;
+  width: 50px;
+  margin: 2px;
+}
+
+.itm {
+
+  background: white;
+  min-height: 100px;
+  border-bottom: solid 1px white;
+  border-radius: 0px;
+  margin: 2px 5px 0px 5px;
+  // width: 173%;
+}
+
+.img-brdr {
+  border-right: solid 1px lightgray;
+  text-align: center;
+  padding: 15px 0px !important;
+
+  img {
+    width: 80%;
+  }
+}
+
+.lft-cntr {
+  padding: 15px 10px !important;
+  position: relative;
+}
+
+.dlt {
+  position: absolute;
+  right: 6px;
+  top: 2px;
+  font-size: 20px;
+}
+
+.prdt {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #E9754E;
+}
+
+.prc {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  color: #E9754E !important;
+  font-size: 21px;
+}
+
+.prc-amt {
+  color: #E9754E !important;
+  font-size: 21px;
+}
+
+.cart {
+  position: relative;
+}
+
+.btm-nv {
+  background: white;
+  padding: 0px 10px;
+  width: 100%;
+}
+
+.itm {
+  font-weight: bold;
+}
+
+.chk-btn {
+  right: 0px;
+  position: absolute;
+  top: 0px;
+  background: #E9754E;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border: solid 1px #E9754E;
+  border-radius: 8px;
+}
+
+.arw {
+
+  padding: 2px 4px;
+  background: white;
+  color: #E9754E;
+  border-radius: 17px;
+  font-size: 16px;
+
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0rem;
+}
+
+.hd1 {
+  font-size: .9rem;
+  font-weight: 100;
+}
+
+.nme {
+  font-size: .9rem;
+  font-weight: bold;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+  padding: 1px 3px 0px 3px !important;
+}
+
+.hd{
+font-size: large;
+}
+.search-results {
+  flex: none;
+}
+:host ::ng-deep .cntr {
+  background-color: #FFFAF7 !important;
+  flex: none;
+}
+.search-results {
+  flex: none;
+}

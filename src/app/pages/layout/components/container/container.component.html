@@ -1,0 +1,23 @@
+<div *ngIf="isLoading">
+  <div class="im-ldr">
+    <img width="43px" src="/assets/images/loader.gif" alt="this slowpoke moves" />
+  </div>
+  <div class="ldr">
+
+  </div>
+</div>
+<app-toolbar *ngIf="layoutModel.showTopNavigation"></app-toolbar>
+
+<div [ngClass]="{'cntr': !layoutModel.isShowFullLengthContainer, 'full-cntr': layoutModel.isShowFullLengthContainer}">
+  <div class="">
+    <router-outlet></router-outlet>
+  </div>
+  
+</div>
+
+<app-bottom-navigation *ngIf="layoutModel.showBottomNavigation"></app-bottom-navigation>
+
+<app-sk-alert></app-sk-alert>
+
+
+<app-confirm-dialog></app-confirm-dialog>

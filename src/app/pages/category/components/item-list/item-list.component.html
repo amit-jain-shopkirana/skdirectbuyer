@@ -1,0 +1,60 @@
+<app-top-navigation-wrapper>
+  <button class="tp-nav-btn" id="itemHeaderBtn" (click)="appRoute()">
+    <img class="img-1" src="assets/images/icons/return.svg">
+    Product List
+  </button>
+  <!-- <div class="txtt pull-right" (click)="display = true"><i class="fa fa-filter fa-lg" aria-hidden="true"></i></div> -->
+</app-top-navigation-wrapper>
+
+
+<div class="cr">
+
+
+  <div class="crrr">
+    <input id="itmList" name="itmList" class="searchKeyword" [(ngModel)]="Keyword"
+      placeholder="Search By Product/Brand/Category" (ngModelChange)="getItemlistforfilter(Keyword)">
+
+  </div>
+
+  <div *ngIf="itemList" class="search-results" infinite-scroll [infiniteScrollContainer]="'.full-cntr'" [fromRoot]="true"
+    [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance"
+    [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
+
+    <div style="margin-bottom: 8px;">
+      <div *ngFor="let items of itemList">
+        <div class="row itm" (click)="productDetail(items)">
+          <div class="col-4 img-brdr">
+            <img [src]="baseUrl + items.ImagePath" alt="{{items.ProductName}}" class="img-12-img">
+          </div>
+          <div class="col-8 lft-cntr">
+            <p>
+              <span class="prdt">{{items.ProductName}}</span>
+            </p>
+            <div class="prccc">
+              <span class="spr"><i class="fa fa-inr" aria-hidden="true"></i> {{items.SellingPrice}}</span>
+              <span class="mrp"><del><i class="fa fa-inr" aria-hidden="true"></i> {{items.Mrp}}</del></span>
+              <span class="prcnt">
+                ({{(items.Mrp - items.SellingPrice)/items.Mrp *100 | number:'1.0-0'}}%
+                Off)
+              </span>
+            </div>
+            <div class="incl">
+               Inclusive of all taxes 
+            </div>
+            <div class="nw">
+              <button class="btn-skd">ADD</button>
+            </div>
+            
+          </div>
+         
+        </div>
+      </div>
+    </div>
+    <div class="noData" *ngIf="!itemList || itemList.length == 0">
+      <span><b><u>No Data Found</u></b></span>
+    </div>
+
+  </div>
+
+</div>
+

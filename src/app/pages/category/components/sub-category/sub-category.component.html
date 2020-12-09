@@ -1,0 +1,25 @@
+
+<div class="card">
+    <div  class="container" *ngIf="subCategoryList && subCategoryList.length > 0">
+       <div class="row tp">
+           <div class="col-8">
+               <span class="hdr">Sub Category</span>
+           </div>
+       </div>
+   </div> 
+   
+   <div class="mb" *ngIf="!noRecord">
+       <div class="row itm" *ngFor="let cat of subCategoryList" (click)="subCategory(cat)">
+           <div class="col-4 img-brdr">
+               <img [src]="baseUrl + cat.ImagePath">
+           </div>
+           <div class="col-8 lft-cntr">
+               <p><span class="prdt">{{cat.Name}}</span></p>
+           </div>
+       </div>
+   </div>
+   <div *ngIf="noRecord">
+       No Record Found
+   </div>
+   </div>
+   

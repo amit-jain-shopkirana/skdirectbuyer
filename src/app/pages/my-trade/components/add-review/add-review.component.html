@@ -1,0 +1,36 @@
+<app-top-navigation-wrapper>
+<div class="row">
+<div class="col-8">
+<span class="hd" (click)="myOrder()"><b><i class="fa fa-arrow-left"></i> &nbsp;&nbsp; Review</b></span>
+</div>
+<div class="col-4 text-right">
+    <span class="hd">Order Id : {{OrderId}}</span>
+</div>       
+</div>         
+</app-top-navigation-wrapper>
+
+<div class="card">
+<div class="row">
+    <span>Rate Your Experience</span>
+    <div class="col-12">
+        <ul class="list-inline rating-list" *ngFor="let star of stars; let i= index" style="display: inline-block"> 
+            <li (click)="countStar(star)" id="{{'starId'+i}}" [ngClass]="{'selected': (star <= selectedValue)}" 
+             (mouseover)="addClass(star)" (mouseout)="removeClass(star)"> ★
+            </li>
+        </ul>
+    </div>
+    <div class="col-12">
+        <label>Comments</label>
+        <textarea type="text" id="d" name ="d" rows="5" placeholder="Enter Comment" style="width: 100%;background-color: rgba(4, 8, 39, 0);" [(ngModel)]="Comment" ></textarea>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <div class="productThumbBox" >
+        <div class="row btn-brdr">  
+          <div class="col-md-3 col-sm-6" (click)="submit(Comment)">
+            <span >Submit</span>
+        </div>       
+        </div>
+        </div>
+      </div>
+  </div>
+</div>

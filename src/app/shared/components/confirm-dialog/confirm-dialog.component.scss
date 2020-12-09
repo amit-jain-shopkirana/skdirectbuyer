@@ -1,0 +1,21 @@
+.mat-dialog-container{
+    padding: 0px !important;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow:none;
+    /* box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12); */
+}
+.mat-dialog-actions {
+    float: right;
+}
+
+
+.mat-dialog-title {
+    margin: 0 0 5px;
+    display: block;
+}
+
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+    background-color: orangered;
+}
